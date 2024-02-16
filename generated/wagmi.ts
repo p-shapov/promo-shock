@@ -9,9 +9,6 @@ import {
 // PromoFactory
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-/**
- * [__View Contract on Binance Smart Chain Testnet Bsc Scan__](https://testnet.bscscan.com/address/0x3d3E2D37151a812418FB075190f959a6C90C3A38)
- */
 export const promoFactoryAbi = [
   { type: 'constructor', inputs: [], stateMutability: 'nonpayable' },
   {
@@ -257,16 +254,9 @@ export const promoFactoryAbi = [
   { type: 'error', inputs: [], name: 'ZeroAddress' },
 ] as const;
 
-/**
- * [__View Contract on Binance Smart Chain Testnet Bsc Scan__](https://testnet.bscscan.com/address/0x3d3E2D37151a812418FB075190f959a6C90C3A38)
- */
-export const promoFactoryAddress = {
-  97: '0x3d3E2D37151a812418FB075190f959a6C90C3A38',
-} as const;
+export const promoFactoryAddress =
+  '0x3d3E2D37151a812418FB075190f959a6C90C3A38' as const;
 
-/**
- * [__View Contract on Binance Smart Chain Testnet Bsc Scan__](https://testnet.bscscan.com/address/0x3d3E2D37151a812418FB075190f959a6C90C3A38)
- */
 export const promoFactoryConfig = {
   address: promoFactoryAddress,
   abi: promoFactoryAbi,
@@ -276,9 +266,6 @@ export const promoFactoryConfig = {
 // TicketFactory
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-/**
- * [__View Contract on Binance Smart Chain Testnet Bsc Scan__](https://testnet.bscscan.com/address/0x42C593A0F50321EA473b5fAe6a4b76c212a26F54)
- */
 export const ticketFactoryAbi = [
   { type: 'constructor', inputs: [], stateMutability: 'nonpayable' },
   {
@@ -587,16 +574,9 @@ export const ticketFactoryAbi = [
   { type: 'error', inputs: [], name: 'ZeroAddress' },
 ] as const;
 
-/**
- * [__View Contract on Binance Smart Chain Testnet Bsc Scan__](https://testnet.bscscan.com/address/0x42C593A0F50321EA473b5fAe6a4b76c212a26F54)
- */
-export const ticketFactoryAddress = {
-  97: '0x42C593A0F50321EA473b5fAe6a4b76c212a26F54',
-} as const;
+export const ticketFactoryAddress =
+  '0x42C593A0F50321EA473b5fAe6a4b76c212a26F54' as const;
 
-/**
- * [__View Contract on Binance Smart Chain Testnet Bsc Scan__](https://testnet.bscscan.com/address/0x42C593A0F50321EA473b5fAe6a4b76c212a26F54)
- */
 export const ticketFactoryConfig = {
   address: ticketFactoryAddress,
   abi: ticketFactoryAbi,
@@ -608,8 +588,6 @@ export const ticketFactoryConfig = {
 
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link promoFactoryAbi}__
- *
- * [__View Contract on Binance Smart Chain Testnet Bsc Scan__](https://testnet.bscscan.com/address/0x3d3E2D37151a812418FB075190f959a6C90C3A38)
  */
 export const useReadPromoFactory = /*#__PURE__*/ createUseReadContract({
   abi: promoFactoryAbi,
@@ -618,8 +596,6 @@ export const useReadPromoFactory = /*#__PURE__*/ createUseReadContract({
 
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link promoFactoryAbi}__ and `functionName` set to `"getAvailablePromotions"`
- *
- * [__View Contract on Binance Smart Chain Testnet Bsc Scan__](https://testnet.bscscan.com/address/0x3d3E2D37151a812418FB075190f959a6C90C3A38)
  */
 export const useReadPromoFactoryGetAvailablePromotions =
   /*#__PURE__*/ createUseReadContract({
@@ -630,8 +606,6 @@ export const useReadPromoFactoryGetAvailablePromotions =
 
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link promoFactoryAbi}__ and `functionName` set to `"getPaymentRecipientAddress"`
- *
- * [__View Contract on Binance Smart Chain Testnet Bsc Scan__](https://testnet.bscscan.com/address/0x3d3E2D37151a812418FB075190f959a6C90C3A38)
  */
 export const useReadPromoFactoryGetPaymentRecipientAddress =
   /*#__PURE__*/ createUseReadContract({
@@ -642,8 +616,6 @@ export const useReadPromoFactoryGetPaymentRecipientAddress =
 
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link promoFactoryAbi}__ and `functionName` set to `"getPaymentTokenAddress"`
- *
- * [__View Contract on Binance Smart Chain Testnet Bsc Scan__](https://testnet.bscscan.com/address/0x3d3E2D37151a812418FB075190f959a6C90C3A38)
  */
 export const useReadPromoFactoryGetPaymentTokenAddress =
   /*#__PURE__*/ createUseReadContract({
@@ -654,8 +626,6 @@ export const useReadPromoFactoryGetPaymentTokenAddress =
 
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link promoFactoryAbi}__ and `functionName` set to `"getPromoCreationPrice"`
- *
- * [__View Contract on Binance Smart Chain Testnet Bsc Scan__](https://testnet.bscscan.com/address/0x3d3E2D37151a812418FB075190f959a6C90C3A38)
  */
 export const useReadPromoFactoryGetPromoCreationPrice =
   /*#__PURE__*/ createUseReadContract({
@@ -666,8 +636,6 @@ export const useReadPromoFactoryGetPromoCreationPrice =
 
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link promoFactoryAbi}__ and `functionName` set to `"owner"`
- *
- * [__View Contract on Binance Smart Chain Testnet Bsc Scan__](https://testnet.bscscan.com/address/0x3d3E2D37151a812418FB075190f959a6C90C3A38)
  */
 export const useReadPromoFactoryOwner = /*#__PURE__*/ createUseReadContract({
   abi: promoFactoryAbi,
@@ -677,8 +645,6 @@ export const useReadPromoFactoryOwner = /*#__PURE__*/ createUseReadContract({
 
 /**
  * Wraps __{@link useWriteContract}__ with `abi` set to __{@link promoFactoryAbi}__
- *
- * [__View Contract on Binance Smart Chain Testnet Bsc Scan__](https://testnet.bscscan.com/address/0x3d3E2D37151a812418FB075190f959a6C90C3A38)
  */
 export const useWritePromoFactory = /*#__PURE__*/ createUseWriteContract({
   abi: promoFactoryAbi,
@@ -687,8 +653,6 @@ export const useWritePromoFactory = /*#__PURE__*/ createUseWriteContract({
 
 /**
  * Wraps __{@link useWriteContract}__ with `abi` set to __{@link promoFactoryAbi}__ and `functionName` set to `"createPromo"`
- *
- * [__View Contract on Binance Smart Chain Testnet Bsc Scan__](https://testnet.bscscan.com/address/0x3d3E2D37151a812418FB075190f959a6C90C3A38)
  */
 export const useWritePromoFactoryCreatePromo =
   /*#__PURE__*/ createUseWriteContract({
@@ -699,8 +663,6 @@ export const useWritePromoFactoryCreatePromo =
 
 /**
  * Wraps __{@link useWriteContract}__ with `abi` set to __{@link promoFactoryAbi}__ and `functionName` set to `"initialize"`
- *
- * [__View Contract on Binance Smart Chain Testnet Bsc Scan__](https://testnet.bscscan.com/address/0x3d3E2D37151a812418FB075190f959a6C90C3A38)
  */
 export const useWritePromoFactoryInitialize =
   /*#__PURE__*/ createUseWriteContract({
@@ -711,8 +673,6 @@ export const useWritePromoFactoryInitialize =
 
 /**
  * Wraps __{@link useWriteContract}__ with `abi` set to __{@link promoFactoryAbi}__ and `functionName` set to `"renounceOwnership"`
- *
- * [__View Contract on Binance Smart Chain Testnet Bsc Scan__](https://testnet.bscscan.com/address/0x3d3E2D37151a812418FB075190f959a6C90C3A38)
  */
 export const useWritePromoFactoryRenounceOwnership =
   /*#__PURE__*/ createUseWriteContract({
@@ -723,8 +683,6 @@ export const useWritePromoFactoryRenounceOwnership =
 
 /**
  * Wraps __{@link useWriteContract}__ with `abi` set to __{@link promoFactoryAbi}__ and `functionName` set to `"setPaymentRecipient"`
- *
- * [__View Contract on Binance Smart Chain Testnet Bsc Scan__](https://testnet.bscscan.com/address/0x3d3E2D37151a812418FB075190f959a6C90C3A38)
  */
 export const useWritePromoFactorySetPaymentRecipient =
   /*#__PURE__*/ createUseWriteContract({
@@ -735,8 +693,6 @@ export const useWritePromoFactorySetPaymentRecipient =
 
 /**
  * Wraps __{@link useWriteContract}__ with `abi` set to __{@link promoFactoryAbi}__ and `functionName` set to `"setPaymentToken"`
- *
- * [__View Contract on Binance Smart Chain Testnet Bsc Scan__](https://testnet.bscscan.com/address/0x3d3E2D37151a812418FB075190f959a6C90C3A38)
  */
 export const useWritePromoFactorySetPaymentToken =
   /*#__PURE__*/ createUseWriteContract({
@@ -747,8 +703,6 @@ export const useWritePromoFactorySetPaymentToken =
 
 /**
  * Wraps __{@link useWriteContract}__ with `abi` set to __{@link promoFactoryAbi}__ and `functionName` set to `"setPromoCreationPrice"`
- *
- * [__View Contract on Binance Smart Chain Testnet Bsc Scan__](https://testnet.bscscan.com/address/0x3d3E2D37151a812418FB075190f959a6C90C3A38)
  */
 export const useWritePromoFactorySetPromoCreationPrice =
   /*#__PURE__*/ createUseWriteContract({
@@ -759,8 +713,6 @@ export const useWritePromoFactorySetPromoCreationPrice =
 
 /**
  * Wraps __{@link useWriteContract}__ with `abi` set to __{@link promoFactoryAbi}__ and `functionName` set to `"transferOwnership"`
- *
- * [__View Contract on Binance Smart Chain Testnet Bsc Scan__](https://testnet.bscscan.com/address/0x3d3E2D37151a812418FB075190f959a6C90C3A38)
  */
 export const useWritePromoFactoryTransferOwnership =
   /*#__PURE__*/ createUseWriteContract({
@@ -771,8 +723,6 @@ export const useWritePromoFactoryTransferOwnership =
 
 /**
  * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link promoFactoryAbi}__
- *
- * [__View Contract on Binance Smart Chain Testnet Bsc Scan__](https://testnet.bscscan.com/address/0x3d3E2D37151a812418FB075190f959a6C90C3A38)
  */
 export const useSimulatePromoFactory = /*#__PURE__*/ createUseSimulateContract({
   abi: promoFactoryAbi,
@@ -781,8 +731,6 @@ export const useSimulatePromoFactory = /*#__PURE__*/ createUseSimulateContract({
 
 /**
  * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link promoFactoryAbi}__ and `functionName` set to `"createPromo"`
- *
- * [__View Contract on Binance Smart Chain Testnet Bsc Scan__](https://testnet.bscscan.com/address/0x3d3E2D37151a812418FB075190f959a6C90C3A38)
  */
 export const useSimulatePromoFactoryCreatePromo =
   /*#__PURE__*/ createUseSimulateContract({
@@ -793,8 +741,6 @@ export const useSimulatePromoFactoryCreatePromo =
 
 /**
  * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link promoFactoryAbi}__ and `functionName` set to `"initialize"`
- *
- * [__View Contract on Binance Smart Chain Testnet Bsc Scan__](https://testnet.bscscan.com/address/0x3d3E2D37151a812418FB075190f959a6C90C3A38)
  */
 export const useSimulatePromoFactoryInitialize =
   /*#__PURE__*/ createUseSimulateContract({
@@ -805,8 +751,6 @@ export const useSimulatePromoFactoryInitialize =
 
 /**
  * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link promoFactoryAbi}__ and `functionName` set to `"renounceOwnership"`
- *
- * [__View Contract on Binance Smart Chain Testnet Bsc Scan__](https://testnet.bscscan.com/address/0x3d3E2D37151a812418FB075190f959a6C90C3A38)
  */
 export const useSimulatePromoFactoryRenounceOwnership =
   /*#__PURE__*/ createUseSimulateContract({
@@ -817,8 +761,6 @@ export const useSimulatePromoFactoryRenounceOwnership =
 
 /**
  * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link promoFactoryAbi}__ and `functionName` set to `"setPaymentRecipient"`
- *
- * [__View Contract on Binance Smart Chain Testnet Bsc Scan__](https://testnet.bscscan.com/address/0x3d3E2D37151a812418FB075190f959a6C90C3A38)
  */
 export const useSimulatePromoFactorySetPaymentRecipient =
   /*#__PURE__*/ createUseSimulateContract({
@@ -829,8 +771,6 @@ export const useSimulatePromoFactorySetPaymentRecipient =
 
 /**
  * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link promoFactoryAbi}__ and `functionName` set to `"setPaymentToken"`
- *
- * [__View Contract on Binance Smart Chain Testnet Bsc Scan__](https://testnet.bscscan.com/address/0x3d3E2D37151a812418FB075190f959a6C90C3A38)
  */
 export const useSimulatePromoFactorySetPaymentToken =
   /*#__PURE__*/ createUseSimulateContract({
@@ -841,8 +781,6 @@ export const useSimulatePromoFactorySetPaymentToken =
 
 /**
  * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link promoFactoryAbi}__ and `functionName` set to `"setPromoCreationPrice"`
- *
- * [__View Contract on Binance Smart Chain Testnet Bsc Scan__](https://testnet.bscscan.com/address/0x3d3E2D37151a812418FB075190f959a6C90C3A38)
  */
 export const useSimulatePromoFactorySetPromoCreationPrice =
   /*#__PURE__*/ createUseSimulateContract({
@@ -853,8 +791,6 @@ export const useSimulatePromoFactorySetPromoCreationPrice =
 
 /**
  * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link promoFactoryAbi}__ and `functionName` set to `"transferOwnership"`
- *
- * [__View Contract on Binance Smart Chain Testnet Bsc Scan__](https://testnet.bscscan.com/address/0x3d3E2D37151a812418FB075190f959a6C90C3A38)
  */
 export const useSimulatePromoFactoryTransferOwnership =
   /*#__PURE__*/ createUseSimulateContract({
@@ -865,8 +801,6 @@ export const useSimulatePromoFactoryTransferOwnership =
 
 /**
  * Wraps __{@link useWatchContractEvent}__ with `abi` set to __{@link promoFactoryAbi}__
- *
- * [__View Contract on Binance Smart Chain Testnet Bsc Scan__](https://testnet.bscscan.com/address/0x3d3E2D37151a812418FB075190f959a6C90C3A38)
  */
 export const useWatchPromoFactoryEvent =
   /*#__PURE__*/ createUseWatchContractEvent({
@@ -876,8 +810,6 @@ export const useWatchPromoFactoryEvent =
 
 /**
  * Wraps __{@link useWatchContractEvent}__ with `abi` set to __{@link promoFactoryAbi}__ and `eventName` set to `"Initialized"`
- *
- * [__View Contract on Binance Smart Chain Testnet Bsc Scan__](https://testnet.bscscan.com/address/0x3d3E2D37151a812418FB075190f959a6C90C3A38)
  */
 export const useWatchPromoFactoryInitializedEvent =
   /*#__PURE__*/ createUseWatchContractEvent({
@@ -888,8 +820,6 @@ export const useWatchPromoFactoryInitializedEvent =
 
 /**
  * Wraps __{@link useWatchContractEvent}__ with `abi` set to __{@link promoFactoryAbi}__ and `eventName` set to `"OwnershipTransferred"`
- *
- * [__View Contract on Binance Smart Chain Testnet Bsc Scan__](https://testnet.bscscan.com/address/0x3d3E2D37151a812418FB075190f959a6C90C3A38)
  */
 export const useWatchPromoFactoryOwnershipTransferredEvent =
   /*#__PURE__*/ createUseWatchContractEvent({
@@ -900,8 +830,6 @@ export const useWatchPromoFactoryOwnershipTransferredEvent =
 
 /**
  * Wraps __{@link useWatchContractEvent}__ with `abi` set to __{@link promoFactoryAbi}__ and `eventName` set to `"PaymentRecipientSet"`
- *
- * [__View Contract on Binance Smart Chain Testnet Bsc Scan__](https://testnet.bscscan.com/address/0x3d3E2D37151a812418FB075190f959a6C90C3A38)
  */
 export const useWatchPromoFactoryPaymentRecipientSetEvent =
   /*#__PURE__*/ createUseWatchContractEvent({
@@ -912,8 +840,6 @@ export const useWatchPromoFactoryPaymentRecipientSetEvent =
 
 /**
  * Wraps __{@link useWatchContractEvent}__ with `abi` set to __{@link promoFactoryAbi}__ and `eventName` set to `"PaymentTokenSet"`
- *
- * [__View Contract on Binance Smart Chain Testnet Bsc Scan__](https://testnet.bscscan.com/address/0x3d3E2D37151a812418FB075190f959a6C90C3A38)
  */
 export const useWatchPromoFactoryPaymentTokenSetEvent =
   /*#__PURE__*/ createUseWatchContractEvent({
@@ -924,8 +850,6 @@ export const useWatchPromoFactoryPaymentTokenSetEvent =
 
 /**
  * Wraps __{@link useWatchContractEvent}__ with `abi` set to __{@link promoFactoryAbi}__ and `eventName` set to `"PromoCreationPriceSet"`
- *
- * [__View Contract on Binance Smart Chain Testnet Bsc Scan__](https://testnet.bscscan.com/address/0x3d3E2D37151a812418FB075190f959a6C90C3A38)
  */
 export const useWatchPromoFactoryPromoCreationPriceSetEvent =
   /*#__PURE__*/ createUseWatchContractEvent({
@@ -936,8 +860,6 @@ export const useWatchPromoFactoryPromoCreationPriceSetEvent =
 
 /**
  * Wraps __{@link useWatchContractEvent}__ with `abi` set to __{@link promoFactoryAbi}__ and `eventName` set to `"PromotionCreated"`
- *
- * [__View Contract on Binance Smart Chain Testnet Bsc Scan__](https://testnet.bscscan.com/address/0x3d3E2D37151a812418FB075190f959a6C90C3A38)
  */
 export const useWatchPromoFactoryPromotionCreatedEvent =
   /*#__PURE__*/ createUseWatchContractEvent({
@@ -948,8 +870,6 @@ export const useWatchPromoFactoryPromotionCreatedEvent =
 
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link ticketFactoryAbi}__
- *
- * [__View Contract on Binance Smart Chain Testnet Bsc Scan__](https://testnet.bscscan.com/address/0x42C593A0F50321EA473b5fAe6a4b76c212a26F54)
  */
 export const useReadTicketFactory = /*#__PURE__*/ createUseReadContract({
   abi: ticketFactoryAbi,
@@ -958,8 +878,6 @@ export const useReadTicketFactory = /*#__PURE__*/ createUseReadContract({
 
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link ticketFactoryAbi}__ and `functionName` set to `"MAX_PROTOCOL_FEE"`
- *
- * [__View Contract on Binance Smart Chain Testnet Bsc Scan__](https://testnet.bscscan.com/address/0x42C593A0F50321EA473b5fAe6a4b76c212a26F54)
  */
 export const useReadTicketFactoryMaxProtocolFee =
   /*#__PURE__*/ createUseReadContract({
@@ -970,8 +888,6 @@ export const useReadTicketFactoryMaxProtocolFee =
 
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link ticketFactoryAbi}__ and `functionName` set to `"getImplementations"`
- *
- * [__View Contract on Binance Smart Chain Testnet Bsc Scan__](https://testnet.bscscan.com/address/0x42C593A0F50321EA473b5fAe6a4b76c212a26F54)
  */
 export const useReadTicketFactoryGetImplementations =
   /*#__PURE__*/ createUseReadContract({
@@ -982,8 +898,6 @@ export const useReadTicketFactoryGetImplementations =
 
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link ticketFactoryAbi}__ and `functionName` set to `"getMaxSalePeriod"`
- *
- * [__View Contract on Binance Smart Chain Testnet Bsc Scan__](https://testnet.bscscan.com/address/0x42C593A0F50321EA473b5fAe6a4b76c212a26F54)
  */
 export const useReadTicketFactoryGetMaxSalePeriod =
   /*#__PURE__*/ createUseReadContract({
@@ -994,8 +908,6 @@ export const useReadTicketFactoryGetMaxSalePeriod =
 
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link ticketFactoryAbi}__ and `functionName` set to `"getProtocolFee"`
- *
- * [__View Contract on Binance Smart Chain Testnet Bsc Scan__](https://testnet.bscscan.com/address/0x42C593A0F50321EA473b5fAe6a4b76c212a26F54)
  */
 export const useReadTicketFactoryGetProtocolFee =
   /*#__PURE__*/ createUseReadContract({
@@ -1006,8 +918,6 @@ export const useReadTicketFactoryGetProtocolFee =
 
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link ticketFactoryAbi}__ and `functionName` set to `"owner"`
- *
- * [__View Contract on Binance Smart Chain Testnet Bsc Scan__](https://testnet.bscscan.com/address/0x42C593A0F50321EA473b5fAe6a4b76c212a26F54)
  */
 export const useReadTicketFactoryOwner = /*#__PURE__*/ createUseReadContract({
   abi: ticketFactoryAbi,
@@ -1017,8 +927,6 @@ export const useReadTicketFactoryOwner = /*#__PURE__*/ createUseReadContract({
 
 /**
  * Wraps __{@link useWriteContract}__ with `abi` set to __{@link ticketFactoryAbi}__
- *
- * [__View Contract on Binance Smart Chain Testnet Bsc Scan__](https://testnet.bscscan.com/address/0x42C593A0F50321EA473b5fAe6a4b76c212a26F54)
  */
 export const useWriteTicketFactory = /*#__PURE__*/ createUseWriteContract({
   abi: ticketFactoryAbi,
@@ -1027,8 +935,6 @@ export const useWriteTicketFactory = /*#__PURE__*/ createUseWriteContract({
 
 /**
  * Wraps __{@link useWriteContract}__ with `abi` set to __{@link ticketFactoryAbi}__ and `functionName` set to `"createTicketSale"`
- *
- * [__View Contract on Binance Smart Chain Testnet Bsc Scan__](https://testnet.bscscan.com/address/0x42C593A0F50321EA473b5fAe6a4b76c212a26F54)
  */
 export const useWriteTicketFactoryCreateTicketSale =
   /*#__PURE__*/ createUseWriteContract({
@@ -1039,8 +945,6 @@ export const useWriteTicketFactoryCreateTicketSale =
 
 /**
  * Wraps __{@link useWriteContract}__ with `abi` set to __{@link ticketFactoryAbi}__ and `functionName` set to `"initialize"`
- *
- * [__View Contract on Binance Smart Chain Testnet Bsc Scan__](https://testnet.bscscan.com/address/0x42C593A0F50321EA473b5fAe6a4b76c212a26F54)
  */
 export const useWriteTicketFactoryInitialize =
   /*#__PURE__*/ createUseWriteContract({
@@ -1051,8 +955,6 @@ export const useWriteTicketFactoryInitialize =
 
 /**
  * Wraps __{@link useWriteContract}__ with `abi` set to __{@link ticketFactoryAbi}__ and `functionName` set to `"renounceOwnership"`
- *
- * [__View Contract on Binance Smart Chain Testnet Bsc Scan__](https://testnet.bscscan.com/address/0x42C593A0F50321EA473b5fAe6a4b76c212a26F54)
  */
 export const useWriteTicketFactoryRenounceOwnership =
   /*#__PURE__*/ createUseWriteContract({
@@ -1063,8 +965,6 @@ export const useWriteTicketFactoryRenounceOwnership =
 
 /**
  * Wraps __{@link useWriteContract}__ with `abi` set to __{@link ticketFactoryAbi}__ and `functionName` set to `"setMaxSalePeriod"`
- *
- * [__View Contract on Binance Smart Chain Testnet Bsc Scan__](https://testnet.bscscan.com/address/0x42C593A0F50321EA473b5fAe6a4b76c212a26F54)
  */
 export const useWriteTicketFactorySetMaxSalePeriod =
   /*#__PURE__*/ createUseWriteContract({
@@ -1075,8 +975,6 @@ export const useWriteTicketFactorySetMaxSalePeriod =
 
 /**
  * Wraps __{@link useWriteContract}__ with `abi` set to __{@link ticketFactoryAbi}__ and `functionName` set to `"setProtocolFee"`
- *
- * [__View Contract on Binance Smart Chain Testnet Bsc Scan__](https://testnet.bscscan.com/address/0x42C593A0F50321EA473b5fAe6a4b76c212a26F54)
  */
 export const useWriteTicketFactorySetProtocolFee =
   /*#__PURE__*/ createUseWriteContract({
@@ -1087,8 +985,6 @@ export const useWriteTicketFactorySetProtocolFee =
 
 /**
  * Wraps __{@link useWriteContract}__ with `abi` set to __{@link ticketFactoryAbi}__ and `functionName` set to `"setProtocolFeeRecipient"`
- *
- * [__View Contract on Binance Smart Chain Testnet Bsc Scan__](https://testnet.bscscan.com/address/0x42C593A0F50321EA473b5fAe6a4b76c212a26F54)
  */
 export const useWriteTicketFactorySetProtocolFeeRecipient =
   /*#__PURE__*/ createUseWriteContract({
@@ -1099,8 +995,6 @@ export const useWriteTicketFactorySetProtocolFeeRecipient =
 
 /**
  * Wraps __{@link useWriteContract}__ with `abi` set to __{@link ticketFactoryAbi}__ and `functionName` set to `"setTicketImplementation"`
- *
- * [__View Contract on Binance Smart Chain Testnet Bsc Scan__](https://testnet.bscscan.com/address/0x42C593A0F50321EA473b5fAe6a4b76c212a26F54)
  */
 export const useWriteTicketFactorySetTicketImplementation =
   /*#__PURE__*/ createUseWriteContract({
@@ -1111,8 +1005,6 @@ export const useWriteTicketFactorySetTicketImplementation =
 
 /**
  * Wraps __{@link useWriteContract}__ with `abi` set to __{@link ticketFactoryAbi}__ and `functionName` set to `"setTicketSaleImplementation"`
- *
- * [__View Contract on Binance Smart Chain Testnet Bsc Scan__](https://testnet.bscscan.com/address/0x42C593A0F50321EA473b5fAe6a4b76c212a26F54)
  */
 export const useWriteTicketFactorySetTicketSaleImplementation =
   /*#__PURE__*/ createUseWriteContract({
@@ -1123,8 +1015,6 @@ export const useWriteTicketFactorySetTicketSaleImplementation =
 
 /**
  * Wraps __{@link useWriteContract}__ with `abi` set to __{@link ticketFactoryAbi}__ and `functionName` set to `"transferOwnership"`
- *
- * [__View Contract on Binance Smart Chain Testnet Bsc Scan__](https://testnet.bscscan.com/address/0x42C593A0F50321EA473b5fAe6a4b76c212a26F54)
  */
 export const useWriteTicketFactoryTransferOwnership =
   /*#__PURE__*/ createUseWriteContract({
@@ -1135,8 +1025,6 @@ export const useWriteTicketFactoryTransferOwnership =
 
 /**
  * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link ticketFactoryAbi}__
- *
- * [__View Contract on Binance Smart Chain Testnet Bsc Scan__](https://testnet.bscscan.com/address/0x42C593A0F50321EA473b5fAe6a4b76c212a26F54)
  */
 export const useSimulateTicketFactory = /*#__PURE__*/ createUseSimulateContract(
   { abi: ticketFactoryAbi, address: ticketFactoryAddress },
@@ -1144,8 +1032,6 @@ export const useSimulateTicketFactory = /*#__PURE__*/ createUseSimulateContract(
 
 /**
  * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link ticketFactoryAbi}__ and `functionName` set to `"createTicketSale"`
- *
- * [__View Contract on Binance Smart Chain Testnet Bsc Scan__](https://testnet.bscscan.com/address/0x42C593A0F50321EA473b5fAe6a4b76c212a26F54)
  */
 export const useSimulateTicketFactoryCreateTicketSale =
   /*#__PURE__*/ createUseSimulateContract({
@@ -1156,8 +1042,6 @@ export const useSimulateTicketFactoryCreateTicketSale =
 
 /**
  * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link ticketFactoryAbi}__ and `functionName` set to `"initialize"`
- *
- * [__View Contract on Binance Smart Chain Testnet Bsc Scan__](https://testnet.bscscan.com/address/0x42C593A0F50321EA473b5fAe6a4b76c212a26F54)
  */
 export const useSimulateTicketFactoryInitialize =
   /*#__PURE__*/ createUseSimulateContract({
@@ -1168,8 +1052,6 @@ export const useSimulateTicketFactoryInitialize =
 
 /**
  * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link ticketFactoryAbi}__ and `functionName` set to `"renounceOwnership"`
- *
- * [__View Contract on Binance Smart Chain Testnet Bsc Scan__](https://testnet.bscscan.com/address/0x42C593A0F50321EA473b5fAe6a4b76c212a26F54)
  */
 export const useSimulateTicketFactoryRenounceOwnership =
   /*#__PURE__*/ createUseSimulateContract({
@@ -1180,8 +1062,6 @@ export const useSimulateTicketFactoryRenounceOwnership =
 
 /**
  * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link ticketFactoryAbi}__ and `functionName` set to `"setMaxSalePeriod"`
- *
- * [__View Contract on Binance Smart Chain Testnet Bsc Scan__](https://testnet.bscscan.com/address/0x42C593A0F50321EA473b5fAe6a4b76c212a26F54)
  */
 export const useSimulateTicketFactorySetMaxSalePeriod =
   /*#__PURE__*/ createUseSimulateContract({
@@ -1192,8 +1072,6 @@ export const useSimulateTicketFactorySetMaxSalePeriod =
 
 /**
  * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link ticketFactoryAbi}__ and `functionName` set to `"setProtocolFee"`
- *
- * [__View Contract on Binance Smart Chain Testnet Bsc Scan__](https://testnet.bscscan.com/address/0x42C593A0F50321EA473b5fAe6a4b76c212a26F54)
  */
 export const useSimulateTicketFactorySetProtocolFee =
   /*#__PURE__*/ createUseSimulateContract({
@@ -1204,8 +1082,6 @@ export const useSimulateTicketFactorySetProtocolFee =
 
 /**
  * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link ticketFactoryAbi}__ and `functionName` set to `"setProtocolFeeRecipient"`
- *
- * [__View Contract on Binance Smart Chain Testnet Bsc Scan__](https://testnet.bscscan.com/address/0x42C593A0F50321EA473b5fAe6a4b76c212a26F54)
  */
 export const useSimulateTicketFactorySetProtocolFeeRecipient =
   /*#__PURE__*/ createUseSimulateContract({
@@ -1216,8 +1092,6 @@ export const useSimulateTicketFactorySetProtocolFeeRecipient =
 
 /**
  * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link ticketFactoryAbi}__ and `functionName` set to `"setTicketImplementation"`
- *
- * [__View Contract on Binance Smart Chain Testnet Bsc Scan__](https://testnet.bscscan.com/address/0x42C593A0F50321EA473b5fAe6a4b76c212a26F54)
  */
 export const useSimulateTicketFactorySetTicketImplementation =
   /*#__PURE__*/ createUseSimulateContract({
@@ -1228,8 +1102,6 @@ export const useSimulateTicketFactorySetTicketImplementation =
 
 /**
  * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link ticketFactoryAbi}__ and `functionName` set to `"setTicketSaleImplementation"`
- *
- * [__View Contract on Binance Smart Chain Testnet Bsc Scan__](https://testnet.bscscan.com/address/0x42C593A0F50321EA473b5fAe6a4b76c212a26F54)
  */
 export const useSimulateTicketFactorySetTicketSaleImplementation =
   /*#__PURE__*/ createUseSimulateContract({
@@ -1240,8 +1112,6 @@ export const useSimulateTicketFactorySetTicketSaleImplementation =
 
 /**
  * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link ticketFactoryAbi}__ and `functionName` set to `"transferOwnership"`
- *
- * [__View Contract on Binance Smart Chain Testnet Bsc Scan__](https://testnet.bscscan.com/address/0x42C593A0F50321EA473b5fAe6a4b76c212a26F54)
  */
 export const useSimulateTicketFactoryTransferOwnership =
   /*#__PURE__*/ createUseSimulateContract({
@@ -1252,8 +1122,6 @@ export const useSimulateTicketFactoryTransferOwnership =
 
 /**
  * Wraps __{@link useWatchContractEvent}__ with `abi` set to __{@link ticketFactoryAbi}__
- *
- * [__View Contract on Binance Smart Chain Testnet Bsc Scan__](https://testnet.bscscan.com/address/0x42C593A0F50321EA473b5fAe6a4b76c212a26F54)
  */
 export const useWatchTicketFactoryEvent =
   /*#__PURE__*/ createUseWatchContractEvent({
@@ -1263,8 +1131,6 @@ export const useWatchTicketFactoryEvent =
 
 /**
  * Wraps __{@link useWatchContractEvent}__ with `abi` set to __{@link ticketFactoryAbi}__ and `eventName` set to `"Initialized"`
- *
- * [__View Contract on Binance Smart Chain Testnet Bsc Scan__](https://testnet.bscscan.com/address/0x42C593A0F50321EA473b5fAe6a4b76c212a26F54)
  */
 export const useWatchTicketFactoryInitializedEvent =
   /*#__PURE__*/ createUseWatchContractEvent({
@@ -1275,8 +1141,6 @@ export const useWatchTicketFactoryInitializedEvent =
 
 /**
  * Wraps __{@link useWatchContractEvent}__ with `abi` set to __{@link ticketFactoryAbi}__ and `eventName` set to `"MaxSalePeriodSet"`
- *
- * [__View Contract on Binance Smart Chain Testnet Bsc Scan__](https://testnet.bscscan.com/address/0x42C593A0F50321EA473b5fAe6a4b76c212a26F54)
  */
 export const useWatchTicketFactoryMaxSalePeriodSetEvent =
   /*#__PURE__*/ createUseWatchContractEvent({
@@ -1287,8 +1151,6 @@ export const useWatchTicketFactoryMaxSalePeriodSetEvent =
 
 /**
  * Wraps __{@link useWatchContractEvent}__ with `abi` set to __{@link ticketFactoryAbi}__ and `eventName` set to `"OwnershipTransferred"`
- *
- * [__View Contract on Binance Smart Chain Testnet Bsc Scan__](https://testnet.bscscan.com/address/0x42C593A0F50321EA473b5fAe6a4b76c212a26F54)
  */
 export const useWatchTicketFactoryOwnershipTransferredEvent =
   /*#__PURE__*/ createUseWatchContractEvent({
@@ -1299,8 +1161,6 @@ export const useWatchTicketFactoryOwnershipTransferredEvent =
 
 /**
  * Wraps __{@link useWatchContractEvent}__ with `abi` set to __{@link ticketFactoryAbi}__ and `eventName` set to `"ProtocolFeeRecipientSet"`
- *
- * [__View Contract on Binance Smart Chain Testnet Bsc Scan__](https://testnet.bscscan.com/address/0x42C593A0F50321EA473b5fAe6a4b76c212a26F54)
  */
 export const useWatchTicketFactoryProtocolFeeRecipientSetEvent =
   /*#__PURE__*/ createUseWatchContractEvent({
@@ -1311,8 +1171,6 @@ export const useWatchTicketFactoryProtocolFeeRecipientSetEvent =
 
 /**
  * Wraps __{@link useWatchContractEvent}__ with `abi` set to __{@link ticketFactoryAbi}__ and `eventName` set to `"ProtocolFeeSet"`
- *
- * [__View Contract on Binance Smart Chain Testnet Bsc Scan__](https://testnet.bscscan.com/address/0x42C593A0F50321EA473b5fAe6a4b76c212a26F54)
  */
 export const useWatchTicketFactoryProtocolFeeSetEvent =
   /*#__PURE__*/ createUseWatchContractEvent({
@@ -1323,8 +1181,6 @@ export const useWatchTicketFactoryProtocolFeeSetEvent =
 
 /**
  * Wraps __{@link useWatchContractEvent}__ with `abi` set to __{@link ticketFactoryAbi}__ and `eventName` set to `"TicketImplementationSet"`
- *
- * [__View Contract on Binance Smart Chain Testnet Bsc Scan__](https://testnet.bscscan.com/address/0x42C593A0F50321EA473b5fAe6a4b76c212a26F54)
  */
 export const useWatchTicketFactoryTicketImplementationSetEvent =
   /*#__PURE__*/ createUseWatchContractEvent({
@@ -1335,8 +1191,6 @@ export const useWatchTicketFactoryTicketImplementationSetEvent =
 
 /**
  * Wraps __{@link useWatchContractEvent}__ with `abi` set to __{@link ticketFactoryAbi}__ and `eventName` set to `"TicketSaleCreated"`
- *
- * [__View Contract on Binance Smart Chain Testnet Bsc Scan__](https://testnet.bscscan.com/address/0x42C593A0F50321EA473b5fAe6a4b76c212a26F54)
  */
 export const useWatchTicketFactoryTicketSaleCreatedEvent =
   /*#__PURE__*/ createUseWatchContractEvent({
@@ -1347,8 +1201,6 @@ export const useWatchTicketFactoryTicketSaleCreatedEvent =
 
 /**
  * Wraps __{@link useWatchContractEvent}__ with `abi` set to __{@link ticketFactoryAbi}__ and `eventName` set to `"TicketSaleImplementationSet"`
- *
- * [__View Contract on Binance Smart Chain Testnet Bsc Scan__](https://testnet.bscscan.com/address/0x42C593A0F50321EA473b5fAe6a4b76c212a26F54)
  */
 export const useWatchTicketFactoryTicketSaleImplementationSetEvent =
   /*#__PURE__*/ createUseWatchContractEvent({

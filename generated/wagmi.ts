@@ -5,6 +5,13 @@ import {
   createUseWatchContractEvent,
 } from 'wagmi/codegen';
 
+import {
+  createReadContract,
+  createWriteContract,
+  createSimulateContract,
+  createWatchContractEvent,
+} from 'wagmi/codegen';
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // PromoFactory
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -1204,6 +1211,631 @@ export const useWatchTicketFactoryTicketSaleCreatedEvent =
  */
 export const useWatchTicketFactoryTicketSaleImplementationSetEvent =
   /*#__PURE__*/ createUseWatchContractEvent({
+    abi: ticketFactoryAbi,
+    address: ticketFactoryAddress,
+    eventName: 'TicketSaleImplementationSet',
+  });
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Action
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+/**
+ * Wraps __{@link readContract}__ with `abi` set to __{@link promoFactoryAbi}__
+ */
+export const readPromoFactory = /*#__PURE__*/ createReadContract({
+  abi: promoFactoryAbi,
+  address: promoFactoryAddress,
+});
+
+/**
+ * Wraps __{@link readContract}__ with `abi` set to __{@link promoFactoryAbi}__ and `functionName` set to `"getAvailablePromotions"`
+ */
+export const readPromoFactoryGetAvailablePromotions =
+  /*#__PURE__*/ createReadContract({
+    abi: promoFactoryAbi,
+    address: promoFactoryAddress,
+    functionName: 'getAvailablePromotions',
+  });
+
+/**
+ * Wraps __{@link readContract}__ with `abi` set to __{@link promoFactoryAbi}__ and `functionName` set to `"getPaymentRecipientAddress"`
+ */
+export const readPromoFactoryGetPaymentRecipientAddress =
+  /*#__PURE__*/ createReadContract({
+    abi: promoFactoryAbi,
+    address: promoFactoryAddress,
+    functionName: 'getPaymentRecipientAddress',
+  });
+
+/**
+ * Wraps __{@link readContract}__ with `abi` set to __{@link promoFactoryAbi}__ and `functionName` set to `"getPaymentTokenAddress"`
+ */
+export const readPromoFactoryGetPaymentTokenAddress =
+  /*#__PURE__*/ createReadContract({
+    abi: promoFactoryAbi,
+    address: promoFactoryAddress,
+    functionName: 'getPaymentTokenAddress',
+  });
+
+/**
+ * Wraps __{@link readContract}__ with `abi` set to __{@link promoFactoryAbi}__ and `functionName` set to `"getPromoCreationPrice"`
+ */
+export const readPromoFactoryGetPromoCreationPrice =
+  /*#__PURE__*/ createReadContract({
+    abi: promoFactoryAbi,
+    address: promoFactoryAddress,
+    functionName: 'getPromoCreationPrice',
+  });
+
+/**
+ * Wraps __{@link readContract}__ with `abi` set to __{@link promoFactoryAbi}__ and `functionName` set to `"owner"`
+ */
+export const readPromoFactoryOwner = /*#__PURE__*/ createReadContract({
+  abi: promoFactoryAbi,
+  address: promoFactoryAddress,
+  functionName: 'owner',
+});
+
+/**
+ * Wraps __{@link writeContract}__ with `abi` set to __{@link promoFactoryAbi}__
+ */
+export const writePromoFactory = /*#__PURE__*/ createWriteContract({
+  abi: promoFactoryAbi,
+  address: promoFactoryAddress,
+});
+
+/**
+ * Wraps __{@link writeContract}__ with `abi` set to __{@link promoFactoryAbi}__ and `functionName` set to `"createPromo"`
+ */
+export const writePromoFactoryCreatePromo = /*#__PURE__*/ createWriteContract({
+  abi: promoFactoryAbi,
+  address: promoFactoryAddress,
+  functionName: 'createPromo',
+});
+
+/**
+ * Wraps __{@link writeContract}__ with `abi` set to __{@link promoFactoryAbi}__ and `functionName` set to `"initialize"`
+ */
+export const writePromoFactoryInitialize = /*#__PURE__*/ createWriteContract({
+  abi: promoFactoryAbi,
+  address: promoFactoryAddress,
+  functionName: 'initialize',
+});
+
+/**
+ * Wraps __{@link writeContract}__ with `abi` set to __{@link promoFactoryAbi}__ and `functionName` set to `"renounceOwnership"`
+ */
+export const writePromoFactoryRenounceOwnership =
+  /*#__PURE__*/ createWriteContract({
+    abi: promoFactoryAbi,
+    address: promoFactoryAddress,
+    functionName: 'renounceOwnership',
+  });
+
+/**
+ * Wraps __{@link writeContract}__ with `abi` set to __{@link promoFactoryAbi}__ and `functionName` set to `"setPaymentRecipient"`
+ */
+export const writePromoFactorySetPaymentRecipient =
+  /*#__PURE__*/ createWriteContract({
+    abi: promoFactoryAbi,
+    address: promoFactoryAddress,
+    functionName: 'setPaymentRecipient',
+  });
+
+/**
+ * Wraps __{@link writeContract}__ with `abi` set to __{@link promoFactoryAbi}__ and `functionName` set to `"setPaymentToken"`
+ */
+export const writePromoFactorySetPaymentToken =
+  /*#__PURE__*/ createWriteContract({
+    abi: promoFactoryAbi,
+    address: promoFactoryAddress,
+    functionName: 'setPaymentToken',
+  });
+
+/**
+ * Wraps __{@link writeContract}__ with `abi` set to __{@link promoFactoryAbi}__ and `functionName` set to `"setPromoCreationPrice"`
+ */
+export const writePromoFactorySetPromoCreationPrice =
+  /*#__PURE__*/ createWriteContract({
+    abi: promoFactoryAbi,
+    address: promoFactoryAddress,
+    functionName: 'setPromoCreationPrice',
+  });
+
+/**
+ * Wraps __{@link writeContract}__ with `abi` set to __{@link promoFactoryAbi}__ and `functionName` set to `"transferOwnership"`
+ */
+export const writePromoFactoryTransferOwnership =
+  /*#__PURE__*/ createWriteContract({
+    abi: promoFactoryAbi,
+    address: promoFactoryAddress,
+    functionName: 'transferOwnership',
+  });
+
+/**
+ * Wraps __{@link simulateContract}__ with `abi` set to __{@link promoFactoryAbi}__
+ */
+export const simulatePromoFactory = /*#__PURE__*/ createSimulateContract({
+  abi: promoFactoryAbi,
+  address: promoFactoryAddress,
+});
+
+/**
+ * Wraps __{@link simulateContract}__ with `abi` set to __{@link promoFactoryAbi}__ and `functionName` set to `"createPromo"`
+ */
+export const simulatePromoFactoryCreatePromo =
+  /*#__PURE__*/ createSimulateContract({
+    abi: promoFactoryAbi,
+    address: promoFactoryAddress,
+    functionName: 'createPromo',
+  });
+
+/**
+ * Wraps __{@link simulateContract}__ with `abi` set to __{@link promoFactoryAbi}__ and `functionName` set to `"initialize"`
+ */
+export const simulatePromoFactoryInitialize =
+  /*#__PURE__*/ createSimulateContract({
+    abi: promoFactoryAbi,
+    address: promoFactoryAddress,
+    functionName: 'initialize',
+  });
+
+/**
+ * Wraps __{@link simulateContract}__ with `abi` set to __{@link promoFactoryAbi}__ and `functionName` set to `"renounceOwnership"`
+ */
+export const simulatePromoFactoryRenounceOwnership =
+  /*#__PURE__*/ createSimulateContract({
+    abi: promoFactoryAbi,
+    address: promoFactoryAddress,
+    functionName: 'renounceOwnership',
+  });
+
+/**
+ * Wraps __{@link simulateContract}__ with `abi` set to __{@link promoFactoryAbi}__ and `functionName` set to `"setPaymentRecipient"`
+ */
+export const simulatePromoFactorySetPaymentRecipient =
+  /*#__PURE__*/ createSimulateContract({
+    abi: promoFactoryAbi,
+    address: promoFactoryAddress,
+    functionName: 'setPaymentRecipient',
+  });
+
+/**
+ * Wraps __{@link simulateContract}__ with `abi` set to __{@link promoFactoryAbi}__ and `functionName` set to `"setPaymentToken"`
+ */
+export const simulatePromoFactorySetPaymentToken =
+  /*#__PURE__*/ createSimulateContract({
+    abi: promoFactoryAbi,
+    address: promoFactoryAddress,
+    functionName: 'setPaymentToken',
+  });
+
+/**
+ * Wraps __{@link simulateContract}__ with `abi` set to __{@link promoFactoryAbi}__ and `functionName` set to `"setPromoCreationPrice"`
+ */
+export const simulatePromoFactorySetPromoCreationPrice =
+  /*#__PURE__*/ createSimulateContract({
+    abi: promoFactoryAbi,
+    address: promoFactoryAddress,
+    functionName: 'setPromoCreationPrice',
+  });
+
+/**
+ * Wraps __{@link simulateContract}__ with `abi` set to __{@link promoFactoryAbi}__ and `functionName` set to `"transferOwnership"`
+ */
+export const simulatePromoFactoryTransferOwnership =
+  /*#__PURE__*/ createSimulateContract({
+    abi: promoFactoryAbi,
+    address: promoFactoryAddress,
+    functionName: 'transferOwnership',
+  });
+
+/**
+ * Wraps __{@link watchContractEvent}__ with `abi` set to __{@link promoFactoryAbi}__
+ */
+export const watchPromoFactoryEvent = /*#__PURE__*/ createWatchContractEvent({
+  abi: promoFactoryAbi,
+  address: promoFactoryAddress,
+});
+
+/**
+ * Wraps __{@link watchContractEvent}__ with `abi` set to __{@link promoFactoryAbi}__ and `eventName` set to `"Initialized"`
+ */
+export const watchPromoFactoryInitializedEvent =
+  /*#__PURE__*/ createWatchContractEvent({
+    abi: promoFactoryAbi,
+    address: promoFactoryAddress,
+    eventName: 'Initialized',
+  });
+
+/**
+ * Wraps __{@link watchContractEvent}__ with `abi` set to __{@link promoFactoryAbi}__ and `eventName` set to `"OwnershipTransferred"`
+ */
+export const watchPromoFactoryOwnershipTransferredEvent =
+  /*#__PURE__*/ createWatchContractEvent({
+    abi: promoFactoryAbi,
+    address: promoFactoryAddress,
+    eventName: 'OwnershipTransferred',
+  });
+
+/**
+ * Wraps __{@link watchContractEvent}__ with `abi` set to __{@link promoFactoryAbi}__ and `eventName` set to `"PaymentRecipientSet"`
+ */
+export const watchPromoFactoryPaymentRecipientSetEvent =
+  /*#__PURE__*/ createWatchContractEvent({
+    abi: promoFactoryAbi,
+    address: promoFactoryAddress,
+    eventName: 'PaymentRecipientSet',
+  });
+
+/**
+ * Wraps __{@link watchContractEvent}__ with `abi` set to __{@link promoFactoryAbi}__ and `eventName` set to `"PaymentTokenSet"`
+ */
+export const watchPromoFactoryPaymentTokenSetEvent =
+  /*#__PURE__*/ createWatchContractEvent({
+    abi: promoFactoryAbi,
+    address: promoFactoryAddress,
+    eventName: 'PaymentTokenSet',
+  });
+
+/**
+ * Wraps __{@link watchContractEvent}__ with `abi` set to __{@link promoFactoryAbi}__ and `eventName` set to `"PromoCreationPriceSet"`
+ */
+export const watchPromoFactoryPromoCreationPriceSetEvent =
+  /*#__PURE__*/ createWatchContractEvent({
+    abi: promoFactoryAbi,
+    address: promoFactoryAddress,
+    eventName: 'PromoCreationPriceSet',
+  });
+
+/**
+ * Wraps __{@link watchContractEvent}__ with `abi` set to __{@link promoFactoryAbi}__ and `eventName` set to `"PromotionCreated"`
+ */
+export const watchPromoFactoryPromotionCreatedEvent =
+  /*#__PURE__*/ createWatchContractEvent({
+    abi: promoFactoryAbi,
+    address: promoFactoryAddress,
+    eventName: 'PromotionCreated',
+  });
+
+/**
+ * Wraps __{@link readContract}__ with `abi` set to __{@link ticketFactoryAbi}__
+ */
+export const readTicketFactory = /*#__PURE__*/ createReadContract({
+  abi: ticketFactoryAbi,
+  address: ticketFactoryAddress,
+});
+
+/**
+ * Wraps __{@link readContract}__ with `abi` set to __{@link ticketFactoryAbi}__ and `functionName` set to `"MAX_PROTOCOL_FEE"`
+ */
+export const readTicketFactoryMaxProtocolFee = /*#__PURE__*/ createReadContract(
+  {
+    abi: ticketFactoryAbi,
+    address: ticketFactoryAddress,
+    functionName: 'MAX_PROTOCOL_FEE',
+  },
+);
+
+/**
+ * Wraps __{@link readContract}__ with `abi` set to __{@link ticketFactoryAbi}__ and `functionName` set to `"getImplementations"`
+ */
+export const readTicketFactoryGetImplementations =
+  /*#__PURE__*/ createReadContract({
+    abi: ticketFactoryAbi,
+    address: ticketFactoryAddress,
+    functionName: 'getImplementations',
+  });
+
+/**
+ * Wraps __{@link readContract}__ with `abi` set to __{@link ticketFactoryAbi}__ and `functionName` set to `"getMaxSalePeriod"`
+ */
+export const readTicketFactoryGetMaxSalePeriod =
+  /*#__PURE__*/ createReadContract({
+    abi: ticketFactoryAbi,
+    address: ticketFactoryAddress,
+    functionName: 'getMaxSalePeriod',
+  });
+
+/**
+ * Wraps __{@link readContract}__ with `abi` set to __{@link ticketFactoryAbi}__ and `functionName` set to `"getProtocolFee"`
+ */
+export const readTicketFactoryGetProtocolFee = /*#__PURE__*/ createReadContract(
+  {
+    abi: ticketFactoryAbi,
+    address: ticketFactoryAddress,
+    functionName: 'getProtocolFee',
+  },
+);
+
+/**
+ * Wraps __{@link readContract}__ with `abi` set to __{@link ticketFactoryAbi}__ and `functionName` set to `"owner"`
+ */
+export const readTicketFactoryOwner = /*#__PURE__*/ createReadContract({
+  abi: ticketFactoryAbi,
+  address: ticketFactoryAddress,
+  functionName: 'owner',
+});
+
+/**
+ * Wraps __{@link writeContract}__ with `abi` set to __{@link ticketFactoryAbi}__
+ */
+export const writeTicketFactory = /*#__PURE__*/ createWriteContract({
+  abi: ticketFactoryAbi,
+  address: ticketFactoryAddress,
+});
+
+/**
+ * Wraps __{@link writeContract}__ with `abi` set to __{@link ticketFactoryAbi}__ and `functionName` set to `"createTicketSale"`
+ */
+export const writeTicketFactoryCreateTicketSale =
+  /*#__PURE__*/ createWriteContract({
+    abi: ticketFactoryAbi,
+    address: ticketFactoryAddress,
+    functionName: 'createTicketSale',
+  });
+
+/**
+ * Wraps __{@link writeContract}__ with `abi` set to __{@link ticketFactoryAbi}__ and `functionName` set to `"initialize"`
+ */
+export const writeTicketFactoryInitialize = /*#__PURE__*/ createWriteContract({
+  abi: ticketFactoryAbi,
+  address: ticketFactoryAddress,
+  functionName: 'initialize',
+});
+
+/**
+ * Wraps __{@link writeContract}__ with `abi` set to __{@link ticketFactoryAbi}__ and `functionName` set to `"renounceOwnership"`
+ */
+export const writeTicketFactoryRenounceOwnership =
+  /*#__PURE__*/ createWriteContract({
+    abi: ticketFactoryAbi,
+    address: ticketFactoryAddress,
+    functionName: 'renounceOwnership',
+  });
+
+/**
+ * Wraps __{@link writeContract}__ with `abi` set to __{@link ticketFactoryAbi}__ and `functionName` set to `"setMaxSalePeriod"`
+ */
+export const writeTicketFactorySetMaxSalePeriod =
+  /*#__PURE__*/ createWriteContract({
+    abi: ticketFactoryAbi,
+    address: ticketFactoryAddress,
+    functionName: 'setMaxSalePeriod',
+  });
+
+/**
+ * Wraps __{@link writeContract}__ with `abi` set to __{@link ticketFactoryAbi}__ and `functionName` set to `"setProtocolFee"`
+ */
+export const writeTicketFactorySetProtocolFee =
+  /*#__PURE__*/ createWriteContract({
+    abi: ticketFactoryAbi,
+    address: ticketFactoryAddress,
+    functionName: 'setProtocolFee',
+  });
+
+/**
+ * Wraps __{@link writeContract}__ with `abi` set to __{@link ticketFactoryAbi}__ and `functionName` set to `"setProtocolFeeRecipient"`
+ */
+export const writeTicketFactorySetProtocolFeeRecipient =
+  /*#__PURE__*/ createWriteContract({
+    abi: ticketFactoryAbi,
+    address: ticketFactoryAddress,
+    functionName: 'setProtocolFeeRecipient',
+  });
+
+/**
+ * Wraps __{@link writeContract}__ with `abi` set to __{@link ticketFactoryAbi}__ and `functionName` set to `"setTicketImplementation"`
+ */
+export const writeTicketFactorySetTicketImplementation =
+  /*#__PURE__*/ createWriteContract({
+    abi: ticketFactoryAbi,
+    address: ticketFactoryAddress,
+    functionName: 'setTicketImplementation',
+  });
+
+/**
+ * Wraps __{@link writeContract}__ with `abi` set to __{@link ticketFactoryAbi}__ and `functionName` set to `"setTicketSaleImplementation"`
+ */
+export const writeTicketFactorySetTicketSaleImplementation =
+  /*#__PURE__*/ createWriteContract({
+    abi: ticketFactoryAbi,
+    address: ticketFactoryAddress,
+    functionName: 'setTicketSaleImplementation',
+  });
+
+/**
+ * Wraps __{@link writeContract}__ with `abi` set to __{@link ticketFactoryAbi}__ and `functionName` set to `"transferOwnership"`
+ */
+export const writeTicketFactoryTransferOwnership =
+  /*#__PURE__*/ createWriteContract({
+    abi: ticketFactoryAbi,
+    address: ticketFactoryAddress,
+    functionName: 'transferOwnership',
+  });
+
+/**
+ * Wraps __{@link simulateContract}__ with `abi` set to __{@link ticketFactoryAbi}__
+ */
+export const simulateTicketFactory = /*#__PURE__*/ createSimulateContract({
+  abi: ticketFactoryAbi,
+  address: ticketFactoryAddress,
+});
+
+/**
+ * Wraps __{@link simulateContract}__ with `abi` set to __{@link ticketFactoryAbi}__ and `functionName` set to `"createTicketSale"`
+ */
+export const simulateTicketFactoryCreateTicketSale =
+  /*#__PURE__*/ createSimulateContract({
+    abi: ticketFactoryAbi,
+    address: ticketFactoryAddress,
+    functionName: 'createTicketSale',
+  });
+
+/**
+ * Wraps __{@link simulateContract}__ with `abi` set to __{@link ticketFactoryAbi}__ and `functionName` set to `"initialize"`
+ */
+export const simulateTicketFactoryInitialize =
+  /*#__PURE__*/ createSimulateContract({
+    abi: ticketFactoryAbi,
+    address: ticketFactoryAddress,
+    functionName: 'initialize',
+  });
+
+/**
+ * Wraps __{@link simulateContract}__ with `abi` set to __{@link ticketFactoryAbi}__ and `functionName` set to `"renounceOwnership"`
+ */
+export const simulateTicketFactoryRenounceOwnership =
+  /*#__PURE__*/ createSimulateContract({
+    abi: ticketFactoryAbi,
+    address: ticketFactoryAddress,
+    functionName: 'renounceOwnership',
+  });
+
+/**
+ * Wraps __{@link simulateContract}__ with `abi` set to __{@link ticketFactoryAbi}__ and `functionName` set to `"setMaxSalePeriod"`
+ */
+export const simulateTicketFactorySetMaxSalePeriod =
+  /*#__PURE__*/ createSimulateContract({
+    abi: ticketFactoryAbi,
+    address: ticketFactoryAddress,
+    functionName: 'setMaxSalePeriod',
+  });
+
+/**
+ * Wraps __{@link simulateContract}__ with `abi` set to __{@link ticketFactoryAbi}__ and `functionName` set to `"setProtocolFee"`
+ */
+export const simulateTicketFactorySetProtocolFee =
+  /*#__PURE__*/ createSimulateContract({
+    abi: ticketFactoryAbi,
+    address: ticketFactoryAddress,
+    functionName: 'setProtocolFee',
+  });
+
+/**
+ * Wraps __{@link simulateContract}__ with `abi` set to __{@link ticketFactoryAbi}__ and `functionName` set to `"setProtocolFeeRecipient"`
+ */
+export const simulateTicketFactorySetProtocolFeeRecipient =
+  /*#__PURE__*/ createSimulateContract({
+    abi: ticketFactoryAbi,
+    address: ticketFactoryAddress,
+    functionName: 'setProtocolFeeRecipient',
+  });
+
+/**
+ * Wraps __{@link simulateContract}__ with `abi` set to __{@link ticketFactoryAbi}__ and `functionName` set to `"setTicketImplementation"`
+ */
+export const simulateTicketFactorySetTicketImplementation =
+  /*#__PURE__*/ createSimulateContract({
+    abi: ticketFactoryAbi,
+    address: ticketFactoryAddress,
+    functionName: 'setTicketImplementation',
+  });
+
+/**
+ * Wraps __{@link simulateContract}__ with `abi` set to __{@link ticketFactoryAbi}__ and `functionName` set to `"setTicketSaleImplementation"`
+ */
+export const simulateTicketFactorySetTicketSaleImplementation =
+  /*#__PURE__*/ createSimulateContract({
+    abi: ticketFactoryAbi,
+    address: ticketFactoryAddress,
+    functionName: 'setTicketSaleImplementation',
+  });
+
+/**
+ * Wraps __{@link simulateContract}__ with `abi` set to __{@link ticketFactoryAbi}__ and `functionName` set to `"transferOwnership"`
+ */
+export const simulateTicketFactoryTransferOwnership =
+  /*#__PURE__*/ createSimulateContract({
+    abi: ticketFactoryAbi,
+    address: ticketFactoryAddress,
+    functionName: 'transferOwnership',
+  });
+
+/**
+ * Wraps __{@link watchContractEvent}__ with `abi` set to __{@link ticketFactoryAbi}__
+ */
+export const watchTicketFactoryEvent = /*#__PURE__*/ createWatchContractEvent({
+  abi: ticketFactoryAbi,
+  address: ticketFactoryAddress,
+});
+
+/**
+ * Wraps __{@link watchContractEvent}__ with `abi` set to __{@link ticketFactoryAbi}__ and `eventName` set to `"Initialized"`
+ */
+export const watchTicketFactoryInitializedEvent =
+  /*#__PURE__*/ createWatchContractEvent({
+    abi: ticketFactoryAbi,
+    address: ticketFactoryAddress,
+    eventName: 'Initialized',
+  });
+
+/**
+ * Wraps __{@link watchContractEvent}__ with `abi` set to __{@link ticketFactoryAbi}__ and `eventName` set to `"MaxSalePeriodSet"`
+ */
+export const watchTicketFactoryMaxSalePeriodSetEvent =
+  /*#__PURE__*/ createWatchContractEvent({
+    abi: ticketFactoryAbi,
+    address: ticketFactoryAddress,
+    eventName: 'MaxSalePeriodSet',
+  });
+
+/**
+ * Wraps __{@link watchContractEvent}__ with `abi` set to __{@link ticketFactoryAbi}__ and `eventName` set to `"OwnershipTransferred"`
+ */
+export const watchTicketFactoryOwnershipTransferredEvent =
+  /*#__PURE__*/ createWatchContractEvent({
+    abi: ticketFactoryAbi,
+    address: ticketFactoryAddress,
+    eventName: 'OwnershipTransferred',
+  });
+
+/**
+ * Wraps __{@link watchContractEvent}__ with `abi` set to __{@link ticketFactoryAbi}__ and `eventName` set to `"ProtocolFeeRecipientSet"`
+ */
+export const watchTicketFactoryProtocolFeeRecipientSetEvent =
+  /*#__PURE__*/ createWatchContractEvent({
+    abi: ticketFactoryAbi,
+    address: ticketFactoryAddress,
+    eventName: 'ProtocolFeeRecipientSet',
+  });
+
+/**
+ * Wraps __{@link watchContractEvent}__ with `abi` set to __{@link ticketFactoryAbi}__ and `eventName` set to `"ProtocolFeeSet"`
+ */
+export const watchTicketFactoryProtocolFeeSetEvent =
+  /*#__PURE__*/ createWatchContractEvent({
+    abi: ticketFactoryAbi,
+    address: ticketFactoryAddress,
+    eventName: 'ProtocolFeeSet',
+  });
+
+/**
+ * Wraps __{@link watchContractEvent}__ with `abi` set to __{@link ticketFactoryAbi}__ and `eventName` set to `"TicketImplementationSet"`
+ */
+export const watchTicketFactoryTicketImplementationSetEvent =
+  /*#__PURE__*/ createWatchContractEvent({
+    abi: ticketFactoryAbi,
+    address: ticketFactoryAddress,
+    eventName: 'TicketImplementationSet',
+  });
+
+/**
+ * Wraps __{@link watchContractEvent}__ with `abi` set to __{@link ticketFactoryAbi}__ and `eventName` set to `"TicketSaleCreated"`
+ */
+export const watchTicketFactoryTicketSaleCreatedEvent =
+  /*#__PURE__*/ createWatchContractEvent({
+    abi: ticketFactoryAbi,
+    address: ticketFactoryAddress,
+    eventName: 'TicketSaleCreated',
+  });
+
+/**
+ * Wraps __{@link watchContractEvent}__ with `abi` set to __{@link ticketFactoryAbi}__ and `eventName` set to `"TicketSaleImplementationSet"`
+ */
+export const watchTicketFactoryTicketSaleImplementationSetEvent =
+  /*#__PURE__*/ createWatchContractEvent({
     abi: ticketFactoryAbi,
     address: ticketFactoryAddress,
     eventName: 'TicketSaleImplementationSet',

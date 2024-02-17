@@ -3,6 +3,7 @@ import dayjs from "dayjs";
 import Image from "next/image";
 import type { FC } from "react";
 
+import { TxButton } from "@promo-shock/components";
 import type { Promo, Stream as StreamType } from "@promo-shock/shared/types";
 import { Button, PromoCard } from "@promo-shock/ui-kit";
 
@@ -66,7 +67,7 @@ export const Stream: FC<Props> = ({
             )}
           </div>
 
-          <Button theme="secondary" size="largeWide" text="Buy access" />
+          <TxButton type="button" text="Buy access" />
         </div>
 
         <div className={styles.description}>

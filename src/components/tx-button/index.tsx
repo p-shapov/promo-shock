@@ -102,9 +102,12 @@ const TxButton: FC<Props> = ({
       : undefined;
 
   const isInsufficientBalance =
-    typeof gasCost !== "undefined" &&
-    typeof balance.data?.value !== "undefined" &&
-    (gasCost > balance.data.value || balance.data.value === BigInt(0));
+    balance.data?.value === BigInt(0) ||
+    (typeof gasCost !== "undefined" &&
+      typeof balance.data?.value !== "undefined" &&
+      gasCost > balance.data.value);
+
+  console.log(balance.data?.value === BigInt(0));
 
   const handleClick: MouseEventHandler<HTMLButtonElement> = async () => {
     try {

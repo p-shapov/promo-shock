@@ -128,7 +128,10 @@ const TxButton: FC<Props> = ({
         {...rest}
         type={isInsufficientAllowance ? "button" : type}
         loading={
-          (loading || tokenInfo.isLoading || contract.isPending) &&
+          (loading ||
+            tokenInfo.isLoading ||
+            tokenAllowanceData.isLoading ||
+            contract.isPending) &&
           !(isInsufficientBalance || isInsufficientTokenBalance)
         }
         text={

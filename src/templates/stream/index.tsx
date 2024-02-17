@@ -27,7 +27,7 @@ export const Stream: FC<Props> = ({
     <main className={styles.root}>
       <h1 className={styles.title}>{title}</h1>
 
-      <Button theme="quaternary" size="big" text="Add my own stream here" />
+      <Button theme="quaternary" size="big" text="Watch stream" />
 
       <div className={styles.streamInfoWrapper}>
         <div className={styles.streamInfo}>

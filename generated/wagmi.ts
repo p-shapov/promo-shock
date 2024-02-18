@@ -590,6 +590,353 @@ export const ticketFactoryConfig = {
 } as const;
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// TicketSale
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+export const ticketSaleAbi = [
+  { type: 'constructor', inputs: [], stateMutability: 'nonpayable' },
+  {
+    type: 'function',
+    inputs: [],
+    name: 'buy',
+    outputs: [],
+    stateMutability: 'nonpayable',
+  },
+  {
+    type: 'function',
+    inputs: [],
+    name: 'getProtocolFee',
+    outputs: [{ name: '', internalType: 'uint256', type: 'uint256' }],
+    stateMutability: 'view',
+  },
+  {
+    type: 'function',
+    inputs: [],
+    name: 'getSaleParams',
+    outputs: [
+      {
+        name: '',
+        internalType: 'struct SaleParams',
+        type: 'tuple',
+        components: [
+          { name: 'startTime', internalType: 'uint256', type: 'uint256' },
+          { name: 'endTime', internalType: 'uint256', type: 'uint256' },
+          { name: 'price', internalType: 'uint256', type: 'uint256' },
+          { name: 'paymentToken', internalType: 'address', type: 'address' },
+        ],
+      },
+    ],
+    stateMutability: 'view',
+  },
+  {
+    type: 'function',
+    inputs: [],
+    name: 'getTotalRaised',
+    outputs: [{ name: '', internalType: 'uint256', type: 'uint256' }],
+    stateMutability: 'view',
+  },
+  {
+    type: 'function',
+    inputs: [
+      {
+        name: 'ticketImplementation',
+        internalType: 'address',
+        type: 'address',
+      },
+      { name: 'streamer', internalType: 'address', type: 'address' },
+      { name: 'protocolFee', internalType: 'uint256', type: 'uint256' },
+      {
+        name: 'protocolFeeRecipient',
+        internalType: 'address',
+        type: 'address',
+      },
+      {
+        name: 'sale',
+        internalType: 'struct SaleParams',
+        type: 'tuple',
+        components: [
+          { name: 'startTime', internalType: 'uint256', type: 'uint256' },
+          { name: 'endTime', internalType: 'uint256', type: 'uint256' },
+          { name: 'price', internalType: 'uint256', type: 'uint256' },
+          { name: 'paymentToken', internalType: 'address', type: 'address' },
+        ],
+      },
+      {
+        name: 'ticketParams',
+        internalType: 'struct TicketParams',
+        type: 'tuple',
+        components: [
+          { name: 'name', internalType: 'string', type: 'string' },
+          { name: 'symbol', internalType: 'string', type: 'string' },
+          { name: 'baseUri', internalType: 'string', type: 'string' },
+          { name: 'cap', internalType: 'uint16', type: 'uint16' },
+        ],
+      },
+    ],
+    name: 'initialize',
+    outputs: [{ name: '', internalType: 'address', type: 'address' }],
+    stateMutability: 'nonpayable',
+  },
+  {
+    type: 'function',
+    inputs: [],
+    name: 'owner',
+    outputs: [{ name: '', internalType: 'address', type: 'address' }],
+    stateMutability: 'view',
+  },
+  {
+    type: 'function',
+    inputs: [{ name: 'tokenId', internalType: 'uint256', type: 'uint256' }],
+    name: 'refund',
+    outputs: [],
+    stateMutability: 'nonpayable',
+  },
+  {
+    type: 'function',
+    inputs: [],
+    name: 'renounceOwnership',
+    outputs: [],
+    stateMutability: 'nonpayable',
+  },
+  {
+    type: 'function',
+    inputs: [
+      { name: 'startTime', internalType: 'uint256', type: 'uint256' },
+      { name: 'endTime', internalType: 'uint256', type: 'uint256' },
+    ],
+    name: 'setTimeSettings',
+    outputs: [],
+    stateMutability: 'nonpayable',
+  },
+  {
+    type: 'function',
+    inputs: [{ name: 'newOwner', internalType: 'address', type: 'address' }],
+    name: 'transferOwnership',
+    outputs: [],
+    stateMutability: 'nonpayable',
+  },
+  {
+    type: 'function',
+    inputs: [],
+    name: 'withdraw',
+    outputs: [],
+    stateMutability: 'nonpayable',
+  },
+  {
+    type: 'event',
+    anonymous: false,
+    inputs: [
+      {
+        name: 'version',
+        internalType: 'uint64',
+        type: 'uint64',
+        indexed: false,
+      },
+    ],
+    name: 'Initialized',
+  },
+  {
+    type: 'event',
+    anonymous: false,
+    inputs: [
+      {
+        name: 'previousOwner',
+        internalType: 'address',
+        type: 'address',
+        indexed: true,
+      },
+      {
+        name: 'newOwner',
+        internalType: 'address',
+        type: 'address',
+        indexed: true,
+      },
+    ],
+    name: 'OwnershipTransferred',
+  },
+  {
+    type: 'event',
+    anonymous: false,
+    inputs: [
+      {
+        name: 'buyer',
+        internalType: 'address',
+        type: 'address',
+        indexed: true,
+      },
+      {
+        name: 'tokenId',
+        internalType: 'uint256',
+        type: 'uint256',
+        indexed: false,
+      },
+      {
+        name: 'price',
+        internalType: 'uint256',
+        type: 'uint256',
+        indexed: false,
+      },
+    ],
+    name: 'Refund',
+  },
+  {
+    type: 'event',
+    anonymous: false,
+    inputs: [
+      {
+        name: 'streamer',
+        internalType: 'address',
+        type: 'address',
+        indexed: true,
+      },
+      {
+        name: 'protocolFee',
+        internalType: 'uint256',
+        type: 'uint256',
+        indexed: false,
+      },
+      {
+        name: 'sale',
+        internalType: 'struct SaleParams',
+        type: 'tuple',
+        components: [
+          { name: 'startTime', internalType: 'uint256', type: 'uint256' },
+          { name: 'endTime', internalType: 'uint256', type: 'uint256' },
+          { name: 'price', internalType: 'uint256', type: 'uint256' },
+          { name: 'paymentToken', internalType: 'address', type: 'address' },
+        ],
+        indexed: false,
+      },
+      {
+        name: 'ticketParams',
+        internalType: 'struct TicketParams',
+        type: 'tuple',
+        components: [
+          { name: 'name', internalType: 'string', type: 'string' },
+          { name: 'symbol', internalType: 'string', type: 'string' },
+          { name: 'baseUri', internalType: 'string', type: 'string' },
+          { name: 'cap', internalType: 'uint16', type: 'uint16' },
+        ],
+        indexed: false,
+      },
+    ],
+    name: 'SaleAdded',
+  },
+  {
+    type: 'event',
+    anonymous: false,
+    inputs: [
+      {
+        name: 'startTime',
+        internalType: 'uint256',
+        type: 'uint256',
+        indexed: false,
+      },
+      {
+        name: 'endTime',
+        internalType: 'uint256',
+        type: 'uint256',
+        indexed: false,
+      },
+    ],
+    name: 'SaleTimeSettingsChanged',
+  },
+  {
+    type: 'event',
+    anonymous: false,
+    inputs: [
+      {
+        name: 'buyer',
+        internalType: 'address',
+        type: 'address',
+        indexed: true,
+      },
+      {
+        name: 'ticket',
+        internalType: 'address',
+        type: 'address',
+        indexed: true,
+      },
+      {
+        name: 'tokenId',
+        internalType: 'uint256',
+        type: 'uint256',
+        indexed: false,
+      },
+      {
+        name: 'price',
+        internalType: 'uint256',
+        type: 'uint256',
+        indexed: false,
+      },
+      {
+        name: 'timestamp',
+        internalType: 'uint256',
+        type: 'uint256',
+        indexed: false,
+      },
+    ],
+    name: 'Sold',
+  },
+  {
+    type: 'event',
+    anonymous: false,
+    inputs: [
+      {
+        name: 'streamer',
+        internalType: 'address',
+        type: 'address',
+        indexed: true,
+      },
+      {
+        name: 'amount',
+        internalType: 'uint256',
+        type: 'uint256',
+        indexed: false,
+      },
+      { name: 'fee', internalType: 'uint256', type: 'uint256', indexed: false },
+    ],
+    name: 'Withdrawn',
+  },
+  {
+    type: 'error',
+    inputs: [{ name: 'target', internalType: 'address', type: 'address' }],
+    name: 'AddressEmptyCode',
+  },
+  {
+    type: 'error',
+    inputs: [{ name: 'account', internalType: 'address', type: 'address' }],
+    name: 'AddressInsufficientBalance',
+  },
+  { type: 'error', inputs: [], name: 'ERC1167FailedCreateClone' },
+  { type: 'error', inputs: [], name: 'FailedInnerCall' },
+  { type: 'error', inputs: [], name: 'InvalidInitialization' },
+  { type: 'error', inputs: [], name: 'InvalidTimeSettings' },
+  { type: 'error', inputs: [], name: 'NotInitializing' },
+  {
+    type: 'error',
+    inputs: [{ name: 'owner', internalType: 'address', type: 'address' }],
+    name: 'OwnableInvalidOwner',
+  },
+  {
+    type: 'error',
+    inputs: [{ name: 'account', internalType: 'address', type: 'address' }],
+    name: 'OwnableUnauthorizedAccount',
+  },
+  { type: 'error', inputs: [], name: 'ReentrancyGuardReentrantCall' },
+  {
+    type: 'error',
+    inputs: [{ name: 'token', internalType: 'address', type: 'address' }],
+    name: 'SafeERC20FailedOperation',
+  },
+  { type: 'error', inputs: [], name: 'SalesAlreadyStarted' },
+  { type: 'error', inputs: [], name: 'SalesShouldBeActive' },
+  { type: 'error', inputs: [], name: 'SalesShouldEnd' },
+  { type: 'error', inputs: [], name: 'YouHaveAlreadyPurchasedTicket' },
+  { type: 'error', inputs: [], name: 'ZeroAddress' },
+] as const;
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // React
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -1216,6 +1563,252 @@ export const useWatchTicketFactoryTicketSaleImplementationSetEvent =
     eventName: 'TicketSaleImplementationSet',
   });
 
+/**
+ * Wraps __{@link useReadContract}__ with `abi` set to __{@link ticketSaleAbi}__
+ */
+export const useReadTicketSale = /*#__PURE__*/ createUseReadContract({
+  abi: ticketSaleAbi,
+});
+
+/**
+ * Wraps __{@link useReadContract}__ with `abi` set to __{@link ticketSaleAbi}__ and `functionName` set to `"getProtocolFee"`
+ */
+export const useReadTicketSaleGetProtocolFee =
+  /*#__PURE__*/ createUseReadContract({
+    abi: ticketSaleAbi,
+    functionName: 'getProtocolFee',
+  });
+
+/**
+ * Wraps __{@link useReadContract}__ with `abi` set to __{@link ticketSaleAbi}__ and `functionName` set to `"getSaleParams"`
+ */
+export const useReadTicketSaleGetSaleParams =
+  /*#__PURE__*/ createUseReadContract({
+    abi: ticketSaleAbi,
+    functionName: 'getSaleParams',
+  });
+
+/**
+ * Wraps __{@link useReadContract}__ with `abi` set to __{@link ticketSaleAbi}__ and `functionName` set to `"getTotalRaised"`
+ */
+export const useReadTicketSaleGetTotalRaised =
+  /*#__PURE__*/ createUseReadContract({
+    abi: ticketSaleAbi,
+    functionName: 'getTotalRaised',
+  });
+
+/**
+ * Wraps __{@link useReadContract}__ with `abi` set to __{@link ticketSaleAbi}__ and `functionName` set to `"owner"`
+ */
+export const useReadTicketSaleOwner = /*#__PURE__*/ createUseReadContract({
+  abi: ticketSaleAbi,
+  functionName: 'owner',
+});
+
+/**
+ * Wraps __{@link useWriteContract}__ with `abi` set to __{@link ticketSaleAbi}__
+ */
+export const useWriteTicketSale = /*#__PURE__*/ createUseWriteContract({
+  abi: ticketSaleAbi,
+});
+
+/**
+ * Wraps __{@link useWriteContract}__ with `abi` set to __{@link ticketSaleAbi}__ and `functionName` set to `"buy"`
+ */
+export const useWriteTicketSaleBuy = /*#__PURE__*/ createUseWriteContract({
+  abi: ticketSaleAbi,
+  functionName: 'buy',
+});
+
+/**
+ * Wraps __{@link useWriteContract}__ with `abi` set to __{@link ticketSaleAbi}__ and `functionName` set to `"initialize"`
+ */
+export const useWriteTicketSaleInitialize =
+  /*#__PURE__*/ createUseWriteContract({
+    abi: ticketSaleAbi,
+    functionName: 'initialize',
+  });
+
+/**
+ * Wraps __{@link useWriteContract}__ with `abi` set to __{@link ticketSaleAbi}__ and `functionName` set to `"refund"`
+ */
+export const useWriteTicketSaleRefund = /*#__PURE__*/ createUseWriteContract({
+  abi: ticketSaleAbi,
+  functionName: 'refund',
+});
+
+/**
+ * Wraps __{@link useWriteContract}__ with `abi` set to __{@link ticketSaleAbi}__ and `functionName` set to `"renounceOwnership"`
+ */
+export const useWriteTicketSaleRenounceOwnership =
+  /*#__PURE__*/ createUseWriteContract({
+    abi: ticketSaleAbi,
+    functionName: 'renounceOwnership',
+  });
+
+/**
+ * Wraps __{@link useWriteContract}__ with `abi` set to __{@link ticketSaleAbi}__ and `functionName` set to `"setTimeSettings"`
+ */
+export const useWriteTicketSaleSetTimeSettings =
+  /*#__PURE__*/ createUseWriteContract({
+    abi: ticketSaleAbi,
+    functionName: 'setTimeSettings',
+  });
+
+/**
+ * Wraps __{@link useWriteContract}__ with `abi` set to __{@link ticketSaleAbi}__ and `functionName` set to `"transferOwnership"`
+ */
+export const useWriteTicketSaleTransferOwnership =
+  /*#__PURE__*/ createUseWriteContract({
+    abi: ticketSaleAbi,
+    functionName: 'transferOwnership',
+  });
+
+/**
+ * Wraps __{@link useWriteContract}__ with `abi` set to __{@link ticketSaleAbi}__ and `functionName` set to `"withdraw"`
+ */
+export const useWriteTicketSaleWithdraw = /*#__PURE__*/ createUseWriteContract({
+  abi: ticketSaleAbi,
+  functionName: 'withdraw',
+});
+
+/**
+ * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link ticketSaleAbi}__
+ */
+export const useSimulateTicketSale = /*#__PURE__*/ createUseSimulateContract({
+  abi: ticketSaleAbi,
+});
+
+/**
+ * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link ticketSaleAbi}__ and `functionName` set to `"buy"`
+ */
+export const useSimulateTicketSaleBuy = /*#__PURE__*/ createUseSimulateContract(
+  { abi: ticketSaleAbi, functionName: 'buy' },
+);
+
+/**
+ * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link ticketSaleAbi}__ and `functionName` set to `"initialize"`
+ */
+export const useSimulateTicketSaleInitialize =
+  /*#__PURE__*/ createUseSimulateContract({
+    abi: ticketSaleAbi,
+    functionName: 'initialize',
+  });
+
+/**
+ * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link ticketSaleAbi}__ and `functionName` set to `"refund"`
+ */
+export const useSimulateTicketSaleRefund =
+  /*#__PURE__*/ createUseSimulateContract({
+    abi: ticketSaleAbi,
+    functionName: 'refund',
+  });
+
+/**
+ * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link ticketSaleAbi}__ and `functionName` set to `"renounceOwnership"`
+ */
+export const useSimulateTicketSaleRenounceOwnership =
+  /*#__PURE__*/ createUseSimulateContract({
+    abi: ticketSaleAbi,
+    functionName: 'renounceOwnership',
+  });
+
+/**
+ * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link ticketSaleAbi}__ and `functionName` set to `"setTimeSettings"`
+ */
+export const useSimulateTicketSaleSetTimeSettings =
+  /*#__PURE__*/ createUseSimulateContract({
+    abi: ticketSaleAbi,
+    functionName: 'setTimeSettings',
+  });
+
+/**
+ * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link ticketSaleAbi}__ and `functionName` set to `"transferOwnership"`
+ */
+export const useSimulateTicketSaleTransferOwnership =
+  /*#__PURE__*/ createUseSimulateContract({
+    abi: ticketSaleAbi,
+    functionName: 'transferOwnership',
+  });
+
+/**
+ * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link ticketSaleAbi}__ and `functionName` set to `"withdraw"`
+ */
+export const useSimulateTicketSaleWithdraw =
+  /*#__PURE__*/ createUseSimulateContract({
+    abi: ticketSaleAbi,
+    functionName: 'withdraw',
+  });
+
+/**
+ * Wraps __{@link useWatchContractEvent}__ with `abi` set to __{@link ticketSaleAbi}__
+ */
+export const useWatchTicketSaleEvent =
+  /*#__PURE__*/ createUseWatchContractEvent({ abi: ticketSaleAbi });
+
+/**
+ * Wraps __{@link useWatchContractEvent}__ with `abi` set to __{@link ticketSaleAbi}__ and `eventName` set to `"Initialized"`
+ */
+export const useWatchTicketSaleInitializedEvent =
+  /*#__PURE__*/ createUseWatchContractEvent({
+    abi: ticketSaleAbi,
+    eventName: 'Initialized',
+  });
+
+/**
+ * Wraps __{@link useWatchContractEvent}__ with `abi` set to __{@link ticketSaleAbi}__ and `eventName` set to `"OwnershipTransferred"`
+ */
+export const useWatchTicketSaleOwnershipTransferredEvent =
+  /*#__PURE__*/ createUseWatchContractEvent({
+    abi: ticketSaleAbi,
+    eventName: 'OwnershipTransferred',
+  });
+
+/**
+ * Wraps __{@link useWatchContractEvent}__ with `abi` set to __{@link ticketSaleAbi}__ and `eventName` set to `"Refund"`
+ */
+export const useWatchTicketSaleRefundEvent =
+  /*#__PURE__*/ createUseWatchContractEvent({
+    abi: ticketSaleAbi,
+    eventName: 'Refund',
+  });
+
+/**
+ * Wraps __{@link useWatchContractEvent}__ with `abi` set to __{@link ticketSaleAbi}__ and `eventName` set to `"SaleAdded"`
+ */
+export const useWatchTicketSaleSaleAddedEvent =
+  /*#__PURE__*/ createUseWatchContractEvent({
+    abi: ticketSaleAbi,
+    eventName: 'SaleAdded',
+  });
+
+/**
+ * Wraps __{@link useWatchContractEvent}__ with `abi` set to __{@link ticketSaleAbi}__ and `eventName` set to `"SaleTimeSettingsChanged"`
+ */
+export const useWatchTicketSaleSaleTimeSettingsChangedEvent =
+  /*#__PURE__*/ createUseWatchContractEvent({
+    abi: ticketSaleAbi,
+    eventName: 'SaleTimeSettingsChanged',
+  });
+
+/**
+ * Wraps __{@link useWatchContractEvent}__ with `abi` set to __{@link ticketSaleAbi}__ and `eventName` set to `"Sold"`
+ */
+export const useWatchTicketSaleSoldEvent =
+  /*#__PURE__*/ createUseWatchContractEvent({
+    abi: ticketSaleAbi,
+    eventName: 'Sold',
+  });
+
+/**
+ * Wraps __{@link useWatchContractEvent}__ with `abi` set to __{@link ticketSaleAbi}__ and `eventName` set to `"Withdrawn"`
+ */
+export const useWatchTicketSaleWithdrawnEvent =
+  /*#__PURE__*/ createUseWatchContractEvent({
+    abi: ticketSaleAbi,
+    eventName: 'Withdrawn',
+  });
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Action
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -1839,4 +2432,243 @@ export const watchTicketFactoryTicketSaleImplementationSetEvent =
     abi: ticketFactoryAbi,
     address: ticketFactoryAddress,
     eventName: 'TicketSaleImplementationSet',
+  });
+
+/**
+ * Wraps __{@link readContract}__ with `abi` set to __{@link ticketSaleAbi}__
+ */
+export const readTicketSale = /*#__PURE__*/ createReadContract({
+  abi: ticketSaleAbi,
+});
+
+/**
+ * Wraps __{@link readContract}__ with `abi` set to __{@link ticketSaleAbi}__ and `functionName` set to `"getProtocolFee"`
+ */
+export const readTicketSaleGetProtocolFee = /*#__PURE__*/ createReadContract({
+  abi: ticketSaleAbi,
+  functionName: 'getProtocolFee',
+});
+
+/**
+ * Wraps __{@link readContract}__ with `abi` set to __{@link ticketSaleAbi}__ and `functionName` set to `"getSaleParams"`
+ */
+export const readTicketSaleGetSaleParams = /*#__PURE__*/ createReadContract({
+  abi: ticketSaleAbi,
+  functionName: 'getSaleParams',
+});
+
+/**
+ * Wraps __{@link readContract}__ with `abi` set to __{@link ticketSaleAbi}__ and `functionName` set to `"getTotalRaised"`
+ */
+export const readTicketSaleGetTotalRaised = /*#__PURE__*/ createReadContract({
+  abi: ticketSaleAbi,
+  functionName: 'getTotalRaised',
+});
+
+/**
+ * Wraps __{@link readContract}__ with `abi` set to __{@link ticketSaleAbi}__ and `functionName` set to `"owner"`
+ */
+export const readTicketSaleOwner = /*#__PURE__*/ createReadContract({
+  abi: ticketSaleAbi,
+  functionName: 'owner',
+});
+
+/**
+ * Wraps __{@link writeContract}__ with `abi` set to __{@link ticketSaleAbi}__
+ */
+export const writeTicketSale = /*#__PURE__*/ createWriteContract({
+  abi: ticketSaleAbi,
+});
+
+/**
+ * Wraps __{@link writeContract}__ with `abi` set to __{@link ticketSaleAbi}__ and `functionName` set to `"buy"`
+ */
+export const writeTicketSaleBuy = /*#__PURE__*/ createWriteContract({
+  abi: ticketSaleAbi,
+  functionName: 'buy',
+});
+
+/**
+ * Wraps __{@link writeContract}__ with `abi` set to __{@link ticketSaleAbi}__ and `functionName` set to `"initialize"`
+ */
+export const writeTicketSaleInitialize = /*#__PURE__*/ createWriteContract({
+  abi: ticketSaleAbi,
+  functionName: 'initialize',
+});
+
+/**
+ * Wraps __{@link writeContract}__ with `abi` set to __{@link ticketSaleAbi}__ and `functionName` set to `"refund"`
+ */
+export const writeTicketSaleRefund = /*#__PURE__*/ createWriteContract({
+  abi: ticketSaleAbi,
+  functionName: 'refund',
+});
+
+/**
+ * Wraps __{@link writeContract}__ with `abi` set to __{@link ticketSaleAbi}__ and `functionName` set to `"renounceOwnership"`
+ */
+export const writeTicketSaleRenounceOwnership =
+  /*#__PURE__*/ createWriteContract({
+    abi: ticketSaleAbi,
+    functionName: 'renounceOwnership',
+  });
+
+/**
+ * Wraps __{@link writeContract}__ with `abi` set to __{@link ticketSaleAbi}__ and `functionName` set to `"setTimeSettings"`
+ */
+export const writeTicketSaleSetTimeSettings = /*#__PURE__*/ createWriteContract(
+  { abi: ticketSaleAbi, functionName: 'setTimeSettings' },
+);
+
+/**
+ * Wraps __{@link writeContract}__ with `abi` set to __{@link ticketSaleAbi}__ and `functionName` set to `"transferOwnership"`
+ */
+export const writeTicketSaleTransferOwnership =
+  /*#__PURE__*/ createWriteContract({
+    abi: ticketSaleAbi,
+    functionName: 'transferOwnership',
+  });
+
+/**
+ * Wraps __{@link writeContract}__ with `abi` set to __{@link ticketSaleAbi}__ and `functionName` set to `"withdraw"`
+ */
+export const writeTicketSaleWithdraw = /*#__PURE__*/ createWriteContract({
+  abi: ticketSaleAbi,
+  functionName: 'withdraw',
+});
+
+/**
+ * Wraps __{@link simulateContract}__ with `abi` set to __{@link ticketSaleAbi}__
+ */
+export const simulateTicketSale = /*#__PURE__*/ createSimulateContract({
+  abi: ticketSaleAbi,
+});
+
+/**
+ * Wraps __{@link simulateContract}__ with `abi` set to __{@link ticketSaleAbi}__ and `functionName` set to `"buy"`
+ */
+export const simulateTicketSaleBuy = /*#__PURE__*/ createSimulateContract({
+  abi: ticketSaleAbi,
+  functionName: 'buy',
+});
+
+/**
+ * Wraps __{@link simulateContract}__ with `abi` set to __{@link ticketSaleAbi}__ and `functionName` set to `"initialize"`
+ */
+export const simulateTicketSaleInitialize =
+  /*#__PURE__*/ createSimulateContract({
+    abi: ticketSaleAbi,
+    functionName: 'initialize',
+  });
+
+/**
+ * Wraps __{@link simulateContract}__ with `abi` set to __{@link ticketSaleAbi}__ and `functionName` set to `"refund"`
+ */
+export const simulateTicketSaleRefund = /*#__PURE__*/ createSimulateContract({
+  abi: ticketSaleAbi,
+  functionName: 'refund',
+});
+
+/**
+ * Wraps __{@link simulateContract}__ with `abi` set to __{@link ticketSaleAbi}__ and `functionName` set to `"renounceOwnership"`
+ */
+export const simulateTicketSaleRenounceOwnership =
+  /*#__PURE__*/ createSimulateContract({
+    abi: ticketSaleAbi,
+    functionName: 'renounceOwnership',
+  });
+
+/**
+ * Wraps __{@link simulateContract}__ with `abi` set to __{@link ticketSaleAbi}__ and `functionName` set to `"setTimeSettings"`
+ */
+export const simulateTicketSaleSetTimeSettings =
+  /*#__PURE__*/ createSimulateContract({
+    abi: ticketSaleAbi,
+    functionName: 'setTimeSettings',
+  });
+
+/**
+ * Wraps __{@link simulateContract}__ with `abi` set to __{@link ticketSaleAbi}__ and `functionName` set to `"transferOwnership"`
+ */
+export const simulateTicketSaleTransferOwnership =
+  /*#__PURE__*/ createSimulateContract({
+    abi: ticketSaleAbi,
+    functionName: 'transferOwnership',
+  });
+
+/**
+ * Wraps __{@link simulateContract}__ with `abi` set to __{@link ticketSaleAbi}__ and `functionName` set to `"withdraw"`
+ */
+export const simulateTicketSaleWithdraw = /*#__PURE__*/ createSimulateContract({
+  abi: ticketSaleAbi,
+  functionName: 'withdraw',
+});
+
+/**
+ * Wraps __{@link watchContractEvent}__ with `abi` set to __{@link ticketSaleAbi}__
+ */
+export const watchTicketSaleEvent = /*#__PURE__*/ createWatchContractEvent({
+  abi: ticketSaleAbi,
+});
+
+/**
+ * Wraps __{@link watchContractEvent}__ with `abi` set to __{@link ticketSaleAbi}__ and `eventName` set to `"Initialized"`
+ */
+export const watchTicketSaleInitializedEvent =
+  /*#__PURE__*/ createWatchContractEvent({
+    abi: ticketSaleAbi,
+    eventName: 'Initialized',
+  });
+
+/**
+ * Wraps __{@link watchContractEvent}__ with `abi` set to __{@link ticketSaleAbi}__ and `eventName` set to `"OwnershipTransferred"`
+ */
+export const watchTicketSaleOwnershipTransferredEvent =
+  /*#__PURE__*/ createWatchContractEvent({
+    abi: ticketSaleAbi,
+    eventName: 'OwnershipTransferred',
+  });
+
+/**
+ * Wraps __{@link watchContractEvent}__ with `abi` set to __{@link ticketSaleAbi}__ and `eventName` set to `"Refund"`
+ */
+export const watchTicketSaleRefundEvent =
+  /*#__PURE__*/ createWatchContractEvent({
+    abi: ticketSaleAbi,
+    eventName: 'Refund',
+  });
+
+/**
+ * Wraps __{@link watchContractEvent}__ with `abi` set to __{@link ticketSaleAbi}__ and `eventName` set to `"SaleAdded"`
+ */
+export const watchTicketSaleSaleAddedEvent =
+  /*#__PURE__*/ createWatchContractEvent({
+    abi: ticketSaleAbi,
+    eventName: 'SaleAdded',
+  });
+
+/**
+ * Wraps __{@link watchContractEvent}__ with `abi` set to __{@link ticketSaleAbi}__ and `eventName` set to `"SaleTimeSettingsChanged"`
+ */
+export const watchTicketSaleSaleTimeSettingsChangedEvent =
+  /*#__PURE__*/ createWatchContractEvent({
+    abi: ticketSaleAbi,
+    eventName: 'SaleTimeSettingsChanged',
+  });
+
+/**
+ * Wraps __{@link watchContractEvent}__ with `abi` set to __{@link ticketSaleAbi}__ and `eventName` set to `"Sold"`
+ */
+export const watchTicketSaleSoldEvent = /*#__PURE__*/ createWatchContractEvent({
+  abi: ticketSaleAbi,
+  eventName: 'Sold',
+});
+
+/**
+ * Wraps __{@link watchContractEvent}__ with `abi` set to __{@link ticketSaleAbi}__ and `eventName` set to `"Withdrawn"`
+ */
+export const watchTicketSaleWithdrawnEvent =
+  /*#__PURE__*/ createWatchContractEvent({
+    abi: ticketSaleAbi,
+    eventName: 'Withdrawn',
   });

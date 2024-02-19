@@ -39,9 +39,106 @@ export interface HTTPValidationError {
 /**
  * 
  * @export
+ * @interface ResponseGetStreamTicketTicketAddrGet
+ */
+export interface ResponseGetStreamTicketTicketAddrGet {
+    /**
+     * 
+     * @type {any}
+     * @memberof ResponseGetStreamTicketTicketAddrGet
+     */
+    'owner_address': any;
+    /**
+     * 
+     * @type {any}
+     * @memberof ResponseGetStreamTicketTicketAddrGet
+     */
+    'sale_address': any;
+    /**
+     * 
+     * @type {any}
+     * @memberof ResponseGetStreamTicketTicketAddrGet
+     */
+    'ticket_addr': any;
+    /**
+     * 
+     * @type {any}
+     * @memberof ResponseGetStreamTicketTicketAddrGet
+     */
+    'payment_token_addr': any;
+    /**
+     * 
+     * @type {any}
+     * @memberof ResponseGetStreamTicketTicketAddrGet
+     */
+    'name': any;
+    /**
+     * 
+     * @type {any}
+     * @memberof ResponseGetStreamTicketTicketAddrGet
+     */
+    'description': any;
+    /**
+     * 
+     * @type {any}
+     * @memberof ResponseGetStreamTicketTicketAddrGet
+     */
+    'banner': any;
+    /**
+     * 
+     * @type {any}
+     * @memberof ResponseGetStreamTicketTicketAddrGet
+     */
+    'sale_start_date': any;
+    /**
+     * 
+     * @type {any}
+     * @memberof ResponseGetStreamTicketTicketAddrGet
+     */
+    'sale_end_date': any;
+    /**
+     * 
+     * @type {any}
+     * @memberof ResponseGetStreamTicketTicketAddrGet
+     */
+    'link': any;
+    /**
+     * 
+     * @type {any}
+     * @memberof ResponseGetStreamTicketTicketAddrGet
+     */
+    'streamer_link': any;
+    /**
+     * 
+     * @type {any}
+     * @memberof ResponseGetStreamTicketTicketAddrGet
+     */
+    'price': any;
+    /**
+     * 
+     * @type {any}
+     * @memberof ResponseGetStreamTicketTicketAddrGet
+     */
+    'total_amount': any;
+    /**
+     * 
+     * @type {any}
+     * @memberof ResponseGetStreamTicketTicketAddrGet
+     */
+    'reserved_amount': any;
+}
+/**
+ * 
+ * @export
  * @interface Stream
  */
 export interface Stream {
+    /**
+     * 
+     * @type {File}
+     * @memberof Stream
+     */
+    'owner_address': File;
     /**
      * 
      * @type {File}
@@ -53,7 +150,13 @@ export interface Stream {
      * @type {File}
      * @memberof Stream
      */
-    'owner_address': File;
+    'ticket_addr': File;
+    /**
+     * 
+     * @type {File}
+     * @memberof Stream
+     */
+    'payment_token_addr': File;
     /**
      * 
      * @type {string}
@@ -72,12 +175,6 @@ export interface Stream {
      * @memberof Stream
      */
     'banner': string;
-    /**
-     * 
-     * @type {number}
-     * @memberof Stream
-     */
-    'start_date': number;
     /**
      * 
      * @type {number}
@@ -104,10 +201,10 @@ export interface Stream {
     'streamer_link': string;
     /**
      * 
-     * @type {number}
+     * @type {string}
      * @memberof Stream
      */
-    'price': number;
+    'price': string;
     /**
      * 
      * @type {number}
@@ -163,12 +260,14 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
         /**
          * 
          * @summary All Promos
+         * @param {any} [stream] 
+         * @param {any} [owner] 
          * @param {any} [offset] 
          * @param {any} [limit] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        allPromosPromoGet: async (offset?: any, limit?: any, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        allPromosPromoGet: async (stream?: any, owner?: any, offset?: any, limit?: any, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/promo`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -180,6 +279,18 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
             const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            if (stream !== undefined) {
+                for (const [key, value] of Object.entries(stream)) {
+                    localVarQueryParameter[key] = value;
+                }
+            }
+
+            if (owner !== undefined) {
+                for (const [key, value] of Object.entries(owner)) {
+                    localVarQueryParameter[key] = value;
+                }
+            }
 
             if (offset !== undefined) {
                 for (const [key, value] of Object.entries(offset)) {
@@ -207,12 +318,13 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
         /**
          * 
          * @summary All Tickets
+         * @param {any} [owner] 
          * @param {any} [offset] 
          * @param {any} [limit] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        allTicketsTicketGet: async (offset?: any, limit?: any, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        allTicketsTicketGet: async (owner?: any, offset?: any, limit?: any, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/ticket`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -224,6 +336,12 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
             const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            if (owner !== undefined) {
+                for (const [key, value] of Object.entries(owner)) {
+                    localVarQueryParameter[key] = value;
+                }
+            }
 
             if (offset !== undefined) {
                 for (const [key, value] of Object.entries(offset)) {
@@ -250,11 +368,127 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
         },
         /**
          * 
-         * @summary Start Index
+         * @summary Get Stream
+         * @param {string} ticketAddr 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        startIndexIndexStartPost: async (options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getStreamTicketTicketAddrGet: async (ticketAddr: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'ticketAddr' is not null or undefined
+            assertParamExists('getStreamTicketTicketAddrGet', 'ticketAddr', ticketAddr)
+            const localVarPath = `/ticket/{ticket_addr}`
+                .replace(`{${"ticket_addr"}}`, encodeURIComponent(String(ticketAddr)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @summary Index Promo
+         * @param {IndexPromoIndexPromoPostFromBlockEnum} [fromBlock] 
+         * @param {IndexPromoIndexPromoPostToBlockEnum} [toBlock] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        indexPromoIndexPromoPost: async (fromBlock?: IndexPromoIndexPromoPostFromBlockEnum, toBlock?: IndexPromoIndexPromoPostToBlockEnum, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/index/promo`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            if (fromBlock !== undefined) {
+                localVarQueryParameter['from_block'] = fromBlock;
+            }
+
+            if (toBlock !== undefined) {
+                localVarQueryParameter['to_block'] = toBlock;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @summary Index Ticket
+         * @param {IndexTicketIndexTicketPostFromBlockEnum} [fromBlock] 
+         * @param {IndexTicketIndexTicketPostToBlockEnum} [toBlock] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        indexTicketIndexTicketPost: async (fromBlock?: IndexTicketIndexTicketPostFromBlockEnum, toBlock?: IndexTicketIndexTicketPostToBlockEnum, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/index/ticket`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            if (fromBlock !== undefined) {
+                localVarQueryParameter['from_block'] = fromBlock;
+            }
+
+            if (toBlock !== undefined) {
+                localVarQueryParameter['to_block'] = toBlock;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @summary Start Index
+         * @param {StartIndexIndexStartPostFromBlockEnum} [fromBlock] 
+         * @param {StartIndexIndexStartPostToBlockEnum} [toBlock] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        startIndexIndexStartPost: async (fromBlock?: StartIndexIndexStartPostFromBlockEnum, toBlock?: StartIndexIndexStartPostToBlockEnum, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/index/start`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -266,6 +500,14 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
             const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            if (fromBlock !== undefined) {
+                localVarQueryParameter['from_block'] = fromBlock;
+            }
+
+            if (toBlock !== undefined) {
+                localVarQueryParameter['to_block'] = toBlock;
+            }
 
 
     
@@ -291,13 +533,15 @@ export const DefaultApiFp = function(configuration?: Configuration) {
         /**
          * 
          * @summary All Promos
+         * @param {any} [stream] 
+         * @param {any} [owner] 
          * @param {any} [offset] 
          * @param {any} [limit] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async allPromosPromoGet(offset?: any, limit?: any, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.allPromosPromoGet(offset, limit, options);
+        async allPromosPromoGet(stream?: any, owner?: any, offset?: any, limit?: any, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.allPromosPromoGet(stream, owner, offset, limit, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['DefaultApi.allPromosPromoGet']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -305,25 +549,69 @@ export const DefaultApiFp = function(configuration?: Configuration) {
         /**
          * 
          * @summary All Tickets
+         * @param {any} [owner] 
          * @param {any} [offset] 
          * @param {any} [limit] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async allTicketsTicketGet(offset?: any, limit?: any, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Stream>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.allTicketsTicketGet(offset, limit, options);
+        async allTicketsTicketGet(owner?: any, offset?: any, limit?: any, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Stream>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.allTicketsTicketGet(owner, offset, limit, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['DefaultApi.allTicketsTicketGet']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * 
-         * @summary Start Index
+         * @summary Get Stream
+         * @param {string} ticketAddr 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async startIndexIndexStartPost(options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.startIndexIndexStartPost(options);
+        async getStreamTicketTicketAddrGet(ticketAddr: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ResponseGetStreamTicketTicketAddrGet>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getStreamTicketTicketAddrGet(ticketAddr, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['DefaultApi.getStreamTicketTicketAddrGet']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * 
+         * @summary Index Promo
+         * @param {IndexPromoIndexPromoPostFromBlockEnum} [fromBlock] 
+         * @param {IndexPromoIndexPromoPostToBlockEnum} [toBlock] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async indexPromoIndexPromoPost(fromBlock?: IndexPromoIndexPromoPostFromBlockEnum, toBlock?: IndexPromoIndexPromoPostToBlockEnum, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.indexPromoIndexPromoPost(fromBlock, toBlock, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['DefaultApi.indexPromoIndexPromoPost']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * 
+         * @summary Index Ticket
+         * @param {IndexTicketIndexTicketPostFromBlockEnum} [fromBlock] 
+         * @param {IndexTicketIndexTicketPostToBlockEnum} [toBlock] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async indexTicketIndexTicketPost(fromBlock?: IndexTicketIndexTicketPostFromBlockEnum, toBlock?: IndexTicketIndexTicketPostToBlockEnum, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.indexTicketIndexTicketPost(fromBlock, toBlock, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['DefaultApi.indexTicketIndexTicketPost']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * 
+         * @summary Start Index
+         * @param {StartIndexIndexStartPostFromBlockEnum} [fromBlock] 
+         * @param {StartIndexIndexStartPostToBlockEnum} [toBlock] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async startIndexIndexStartPost(fromBlock?: StartIndexIndexStartPostFromBlockEnum, toBlock?: StartIndexIndexStartPostToBlockEnum, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.startIndexIndexStartPost(fromBlock, toBlock, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['DefaultApi.startIndexIndexStartPost']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -341,33 +629,70 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
         /**
          * 
          * @summary All Promos
+         * @param {any} [stream] 
+         * @param {any} [owner] 
          * @param {any} [offset] 
          * @param {any} [limit] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        allPromosPromoGet(offset?: any, limit?: any, options?: any): AxiosPromise<any> {
-            return localVarFp.allPromosPromoGet(offset, limit, options).then((request) => request(axios, basePath));
+        allPromosPromoGet(stream?: any, owner?: any, offset?: any, limit?: any, options?: any): AxiosPromise<any> {
+            return localVarFp.allPromosPromoGet(stream, owner, offset, limit, options).then((request) => request(axios, basePath));
         },
         /**
          * 
          * @summary All Tickets
+         * @param {any} [owner] 
          * @param {any} [offset] 
          * @param {any} [limit] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        allTicketsTicketGet(offset?: any, limit?: any, options?: any): AxiosPromise<Array<Stream>> {
-            return localVarFp.allTicketsTicketGet(offset, limit, options).then((request) => request(axios, basePath));
+        allTicketsTicketGet(owner?: any, offset?: any, limit?: any, options?: any): AxiosPromise<Array<Stream>> {
+            return localVarFp.allTicketsTicketGet(owner, offset, limit, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @summary Get Stream
+         * @param {string} ticketAddr 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getStreamTicketTicketAddrGet(ticketAddr: string, options?: any): AxiosPromise<ResponseGetStreamTicketTicketAddrGet> {
+            return localVarFp.getStreamTicketTicketAddrGet(ticketAddr, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @summary Index Promo
+         * @param {IndexPromoIndexPromoPostFromBlockEnum} [fromBlock] 
+         * @param {IndexPromoIndexPromoPostToBlockEnum} [toBlock] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        indexPromoIndexPromoPost(fromBlock?: IndexPromoIndexPromoPostFromBlockEnum, toBlock?: IndexPromoIndexPromoPostToBlockEnum, options?: any): AxiosPromise<any> {
+            return localVarFp.indexPromoIndexPromoPost(fromBlock, toBlock, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @summary Index Ticket
+         * @param {IndexTicketIndexTicketPostFromBlockEnum} [fromBlock] 
+         * @param {IndexTicketIndexTicketPostToBlockEnum} [toBlock] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        indexTicketIndexTicketPost(fromBlock?: IndexTicketIndexTicketPostFromBlockEnum, toBlock?: IndexTicketIndexTicketPostToBlockEnum, options?: any): AxiosPromise<any> {
+            return localVarFp.indexTicketIndexTicketPost(fromBlock, toBlock, options).then((request) => request(axios, basePath));
         },
         /**
          * 
          * @summary Start Index
+         * @param {StartIndexIndexStartPostFromBlockEnum} [fromBlock] 
+         * @param {StartIndexIndexStartPostToBlockEnum} [toBlock] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        startIndexIndexStartPost(options?: any): AxiosPromise<any> {
-            return localVarFp.startIndexIndexStartPost(options).then((request) => request(axios, basePath));
+        startIndexIndexStartPost(fromBlock?: StartIndexIndexStartPostFromBlockEnum, toBlock?: StartIndexIndexStartPostToBlockEnum, options?: any): AxiosPromise<any> {
+            return localVarFp.startIndexIndexStartPost(fromBlock, toBlock, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -382,40 +707,149 @@ export class DefaultApi extends BaseAPI {
     /**
      * 
      * @summary All Promos
+     * @param {any} [stream] 
+     * @param {any} [owner] 
      * @param {any} [offset] 
      * @param {any} [limit] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof DefaultApi
      */
-    public allPromosPromoGet(offset?: any, limit?: any, options?: RawAxiosRequestConfig) {
-        return DefaultApiFp(this.configuration).allPromosPromoGet(offset, limit, options).then((request) => request(this.axios, this.basePath));
+    public allPromosPromoGet(stream?: any, owner?: any, offset?: any, limit?: any, options?: RawAxiosRequestConfig) {
+        return DefaultApiFp(this.configuration).allPromosPromoGet(stream, owner, offset, limit, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * 
      * @summary All Tickets
+     * @param {any} [owner] 
      * @param {any} [offset] 
      * @param {any} [limit] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof DefaultApi
      */
-    public allTicketsTicketGet(offset?: any, limit?: any, options?: RawAxiosRequestConfig) {
-        return DefaultApiFp(this.configuration).allTicketsTicketGet(offset, limit, options).then((request) => request(this.axios, this.basePath));
+    public allTicketsTicketGet(owner?: any, offset?: any, limit?: any, options?: RawAxiosRequestConfig) {
+        return DefaultApiFp(this.configuration).allTicketsTicketGet(owner, offset, limit, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @summary Get Stream
+     * @param {string} ticketAddr 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof DefaultApi
+     */
+    public getStreamTicketTicketAddrGet(ticketAddr: string, options?: RawAxiosRequestConfig) {
+        return DefaultApiFp(this.configuration).getStreamTicketTicketAddrGet(ticketAddr, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @summary Index Promo
+     * @param {IndexPromoIndexPromoPostFromBlockEnum} [fromBlock] 
+     * @param {IndexPromoIndexPromoPostToBlockEnum} [toBlock] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof DefaultApi
+     */
+    public indexPromoIndexPromoPost(fromBlock?: IndexPromoIndexPromoPostFromBlockEnum, toBlock?: IndexPromoIndexPromoPostToBlockEnum, options?: RawAxiosRequestConfig) {
+        return DefaultApiFp(this.configuration).indexPromoIndexPromoPost(fromBlock, toBlock, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @summary Index Ticket
+     * @param {IndexTicketIndexTicketPostFromBlockEnum} [fromBlock] 
+     * @param {IndexTicketIndexTicketPostToBlockEnum} [toBlock] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof DefaultApi
+     */
+    public indexTicketIndexTicketPost(fromBlock?: IndexTicketIndexTicketPostFromBlockEnum, toBlock?: IndexTicketIndexTicketPostToBlockEnum, options?: RawAxiosRequestConfig) {
+        return DefaultApiFp(this.configuration).indexTicketIndexTicketPost(fromBlock, toBlock, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * 
      * @summary Start Index
+     * @param {StartIndexIndexStartPostFromBlockEnum} [fromBlock] 
+     * @param {StartIndexIndexStartPostToBlockEnum} [toBlock] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof DefaultApi
      */
-    public startIndexIndexStartPost(options?: RawAxiosRequestConfig) {
-        return DefaultApiFp(this.configuration).startIndexIndexStartPost(options).then((request) => request(this.axios, this.basePath));
+    public startIndexIndexStartPost(fromBlock?: StartIndexIndexStartPostFromBlockEnum, toBlock?: StartIndexIndexStartPostToBlockEnum, options?: RawAxiosRequestConfig) {
+        return DefaultApiFp(this.configuration).startIndexIndexStartPost(fromBlock, toBlock, options).then((request) => request(this.axios, this.basePath));
     }
 }
 
+/**
+ * @export
+ */
+export const IndexPromoIndexPromoPostFromBlockEnum = {
+    Latest: 'latest',
+    Earliest: 'earliest',
+    Pending: 'pending',
+    Safe: 'safe',
+    Finalized: 'finalized'
+} as const;
+export type IndexPromoIndexPromoPostFromBlockEnum = typeof IndexPromoIndexPromoPostFromBlockEnum[keyof typeof IndexPromoIndexPromoPostFromBlockEnum];
+/**
+ * @export
+ */
+export const IndexPromoIndexPromoPostToBlockEnum = {
+    Latest: 'latest',
+    Earliest: 'earliest',
+    Pending: 'pending',
+    Safe: 'safe',
+    Finalized: 'finalized'
+} as const;
+export type IndexPromoIndexPromoPostToBlockEnum = typeof IndexPromoIndexPromoPostToBlockEnum[keyof typeof IndexPromoIndexPromoPostToBlockEnum];
+/**
+ * @export
+ */
+export const IndexTicketIndexTicketPostFromBlockEnum = {
+    Latest: 'latest',
+    Earliest: 'earliest',
+    Pending: 'pending',
+    Safe: 'safe',
+    Finalized: 'finalized'
+} as const;
+export type IndexTicketIndexTicketPostFromBlockEnum = typeof IndexTicketIndexTicketPostFromBlockEnum[keyof typeof IndexTicketIndexTicketPostFromBlockEnum];
+/**
+ * @export
+ */
+export const IndexTicketIndexTicketPostToBlockEnum = {
+    Latest: 'latest',
+    Earliest: 'earliest',
+    Pending: 'pending',
+    Safe: 'safe',
+    Finalized: 'finalized'
+} as const;
+export type IndexTicketIndexTicketPostToBlockEnum = typeof IndexTicketIndexTicketPostToBlockEnum[keyof typeof IndexTicketIndexTicketPostToBlockEnum];
+/**
+ * @export
+ */
+export const StartIndexIndexStartPostFromBlockEnum = {
+    Latest: 'latest',
+    Earliest: 'earliest',
+    Pending: 'pending',
+    Safe: 'safe',
+    Finalized: 'finalized'
+} as const;
+export type StartIndexIndexStartPostFromBlockEnum = typeof StartIndexIndexStartPostFromBlockEnum[keyof typeof StartIndexIndexStartPostFromBlockEnum];
+/**
+ * @export
+ */
+export const StartIndexIndexStartPostToBlockEnum = {
+    Latest: 'latest',
+    Earliest: 'earliest',
+    Pending: 'pending',
+    Safe: 'safe',
+    Finalized: 'finalized'
+} as const;
+export type StartIndexIndexStartPostToBlockEnum = typeof StartIndexIndexStartPostToBlockEnum[keyof typeof StartIndexIndexStartPostToBlockEnum];
 
 

@@ -36,6 +36,7 @@ export const StreamCard: FC<Props> = ({
   highlight,
   watchOnly,
 }) => {
+  const nowUnix = dayjs(startDateUnix).unix();
   const paymentTokenSymbol = useReadContract({
     abi: erc721Abi,
     address: paymentTokenAddress,
@@ -63,12 +64,12 @@ export const StreamCard: FC<Props> = ({
   const startDate = dayjs(startDateUnix);
   const endDate = dayjs(endDateUnix);
   const ongoing =
-    (startDate.isBefore(dayjs()) && endDate.isAfter(dayjs())) || watchOnly;
+    (startDate.isBefore(nowUnix) && endDate.isAfter(nowUnix)) || watchOnly;
   const saleStartDate = dayjs(saleStartDateUnix);
   const saleEndDate = dayjs(saleEndDateUnix);
   const remainingAmount = totalAmount - reservedAmount;
-  const ticketsAreOut = remainingAmount === 0 && startDate.isAfter(dayjs());
-  const streamHasFinished = endDate.isBefore(dayjs());
+  const ticketsAreOut = remainingAmount === 0 && startDate.isAfter(nowUnix);
+  const streamHasFinished = endDate.isBefore(nowUnix);
 
   return (
     <div className={styles.wrap}>

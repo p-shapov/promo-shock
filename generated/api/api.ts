@@ -59,13 +59,13 @@ export interface ResponseGetStreamTicketTicketAddrGet {
      * @type {any}
      * @memberof ResponseGetStreamTicketTicketAddrGet
      */
-    'ticket_addr': any;
+    'ticket_address': any;
     /**
      * 
      * @type {any}
      * @memberof ResponseGetStreamTicketTicketAddrGet
      */
-    'payment_token_addr': any;
+    'payment_token_address': any;
     /**
      * 
      * @type {any}
@@ -89,6 +89,12 @@ export interface ResponseGetStreamTicketTicketAddrGet {
      * @type {any}
      * @memberof ResponseGetStreamTicketTicketAddrGet
      */
+    'start_date': any;
+    /**
+     * 
+     * @type {any}
+     * @memberof ResponseGetStreamTicketTicketAddrGet
+     */
     'sale_start_date': any;
     /**
      * 
@@ -101,7 +107,7 @@ export interface ResponseGetStreamTicketTicketAddrGet {
      * @type {any}
      * @memberof ResponseGetStreamTicketTicketAddrGet
      */
-    'link': any;
+    'stream_link': any;
     /**
      * 
      * @type {any}
@@ -126,6 +132,12 @@ export interface ResponseGetStreamTicketTicketAddrGet {
      * @memberof ResponseGetStreamTicketTicketAddrGet
      */
     'reserved_amount': any;
+    /**
+     * 
+     * @type {any}
+     * @memberof ResponseGetStreamTicketTicketAddrGet
+     */
+    'purchased': any;
 }
 /**
  * 
@@ -150,13 +162,13 @@ export interface Stream {
      * @type {File}
      * @memberof Stream
      */
-    'ticket_addr': File;
+    'ticket_address': File;
     /**
      * 
      * @type {File}
      * @memberof Stream
      */
-    'payment_token_addr': File;
+    'payment_token_address': File;
     /**
      * 
      * @type {string}
@@ -180,6 +192,12 @@ export interface Stream {
      * @type {number}
      * @memberof Stream
      */
+    'start_date': number;
+    /**
+     * 
+     * @type {number}
+     * @memberof Stream
+     */
     'sale_start_date': number;
     /**
      * 
@@ -192,7 +210,7 @@ export interface Stream {
      * @type {string}
      * @memberof Stream
      */
-    'link': string;
+    'stream_link': string;
     /**
      * 
      * @type {string}
@@ -217,6 +235,12 @@ export interface Stream {
      * @memberof Stream
      */
     'reserved_amount': number;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof Stream
+     */
+    'purchased': boolean;
 }
 /**
  * 

@@ -81,6 +81,7 @@ const NewStreamPass: FC = () => {
             log.blockNumber,
           ) as unknown as IndexTicketIndexTicketPostToBlockEnum,
         );
+      } catch {
       } finally {
         setPending(false);
         router.push(

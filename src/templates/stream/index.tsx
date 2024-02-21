@@ -92,7 +92,6 @@ export const Stream: FC<Props> = ({
 
   const disabled = saleHasFinished || saleHasNotStarted || ticketsAreOut;
 
-  console.log(disabled);
   return (
     <main className={styles.root}>
       <h1 className={styles.title}>{name}</h1>

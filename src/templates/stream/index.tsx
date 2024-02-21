@@ -47,7 +47,6 @@ export const Stream: FC<Props> = ({
   promos,
   purchased,
 }) => {
-  const nowUnix = dayjs(startDateUnix).unix();
   const [imageElement] = useHover((hovered) => (
     <div className={styles.image_wrap}>
       <div
@@ -74,11 +73,11 @@ export const Stream: FC<Props> = ({
   const saleEndDate = dayjs(saleEndDateUnix);
   const saleStartDate = dayjs(saleStartDateUnix);
   const remainingAmount = totalAmount - reservedAmount;
-  const ticketsAreOut = remainingAmount === 0 && startDate.isAfter(nowUnix);
-  const saleHasFinished = saleEndDate.isBefore(nowUnix);
-  const saleHasNotStarted = saleStartDate.isAfter(nowUnix);
-  const streamHasFinished = endDate.isBefore(nowUnix);
-  const ongoing = startDate.isBefore(nowUnix) && endDate.isAfter(nowUnix);
+  const ticketsAreOut = remainingAmount === 0 && startDate.isAfter(dayjs());
+  const saleHasFinished = saleEndDate.isBefore(dayjs());
+  const saleHasNotStarted = saleStartDate.isAfter(dayjs());
+  const streamHasFinished = endDate.isBefore(dayjs());
+  const ongoing = startDate.isBefore(dayjs()) && endDate.isAfter(dayjs());
 
   const handleBuy = async () => {
     try {
@@ -93,6 +92,7 @@ export const Stream: FC<Props> = ({
 
   const disabled = saleHasFinished || saleHasNotStarted || ticketsAreOut;
 
+  console.log(disabled);
   return (
     <main className={styles.root}>
       <h1 className={styles.title}>{name}</h1>
@@ -117,7 +117,7 @@ export const Stream: FC<Props> = ({
               </span>
             </span>
 
-            {remainingAmount > 0 && startDate.isAfter(nowUnix) && (
+            {remainingAmount > 0 && startDate.isAfter(dayjs()) && (
               <span className={styles.subtitle}>
                 {remainingAmount < 5 ? (
                   <span className={styles.fire}>🔥</span>

@@ -105,14 +105,14 @@ const NewPromo: FC = () => {
       const log = logs[0] || {};
       try {
         await api.indexPromoIndexPromoPost(
-          Number(log.blockNumber),
-          Number(log.blockNumber),
+          Number(log?.blockNumber),
+          Number(log?.blockNumber),
         );
       } catch {
       } finally {
         setPending(false);
         router.push(
-          `/profile/my-promos?highlight_address=${log.args?.promotion?.promoAddr.toLowerCase()}`,
+          `/profile/my-promos?highlight_address=${log?.args?.promotion?.promoAddr.toLowerCase()}`,
         );
       }
     },

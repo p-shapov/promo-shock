@@ -70,14 +70,14 @@ const NewStreamPass: FC = () => {
       const log = logs[0] || {};
       try {
         await api.indexTicketIndexTicketPost(
-          Number(log.blockNumber),
-          Number(log.blockNumber),
+          Number(log?.blockNumber),
+          Number(log?.blockNumber),
         );
       } catch {
       } finally {
         setPending(false);
         router.push(
-          `/profile/my-streams?highlight_address=${log.args?.ticketSaleAddr?.toLowerCase()}`,
+          `/profile/my-streams?highlight_address=${log?.args?.ticketSaleAddr?.toLowerCase()}`,
         );
       }
     },

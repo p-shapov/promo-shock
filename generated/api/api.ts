@@ -427,12 +427,12 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
         /**
          * 
          * @summary Index Promo
-         * @param {IndexPromoIndexPromoPostFromBlockEnum} [fromBlock] 
-         * @param {IndexPromoIndexPromoPostToBlockEnum} [toBlock] 
+         * @param {any} [fromBlock] 
+         * @param {any} [toBlock] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        indexPromoIndexPromoPost: async (fromBlock?: IndexPromoIndexPromoPostFromBlockEnum, toBlock?: IndexPromoIndexPromoPostToBlockEnum, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        indexPromoIndexPromoPost: async (fromBlock?: any, toBlock?: any, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/index/promo`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -446,11 +446,15 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
             const localVarQueryParameter = {} as any;
 
             if (fromBlock !== undefined) {
-                localVarQueryParameter['from_block'] = fromBlock;
+                for (const [key, value] of Object.entries(fromBlock)) {
+                    localVarQueryParameter[key] = value;
+                }
             }
 
             if (toBlock !== undefined) {
-                localVarQueryParameter['to_block'] = toBlock;
+                for (const [key, value] of Object.entries(toBlock)) {
+                    localVarQueryParameter[key] = value;
+                }
             }
 
 
@@ -467,12 +471,12 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
         /**
          * 
          * @summary Index Ticket
-         * @param {IndexTicketIndexTicketPostFromBlockEnum} [fromBlock] 
-         * @param {IndexTicketIndexTicketPostToBlockEnum} [toBlock] 
+         * @param {any} [fromBlock] 
+         * @param {any} [toBlock] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        indexTicketIndexTicketPost: async (fromBlock?: IndexTicketIndexTicketPostFromBlockEnum, toBlock?: IndexTicketIndexTicketPostToBlockEnum, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        indexTicketIndexTicketPost: async (fromBlock?: any, toBlock?: any, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/index/ticket`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -486,11 +490,15 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
             const localVarQueryParameter = {} as any;
 
             if (fromBlock !== undefined) {
-                localVarQueryParameter['from_block'] = fromBlock;
+                for (const [key, value] of Object.entries(fromBlock)) {
+                    localVarQueryParameter[key] = value;
+                }
             }
 
             if (toBlock !== undefined) {
-                localVarQueryParameter['to_block'] = toBlock;
+                for (const [key, value] of Object.entries(toBlock)) {
+                    localVarQueryParameter[key] = value;
+                }
             }
 
 
@@ -507,12 +515,12 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
         /**
          * 
          * @summary Start Index
-         * @param {StartIndexIndexStartPostFromBlockEnum} [fromBlock] 
-         * @param {StartIndexIndexStartPostToBlockEnum} [toBlock] 
+         * @param {any} [fromBlock] 
+         * @param {any} [toBlock] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        startIndexIndexStartPost: async (fromBlock?: StartIndexIndexStartPostFromBlockEnum, toBlock?: StartIndexIndexStartPostToBlockEnum, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        startIndexIndexStartPost: async (fromBlock?: any, toBlock?: any, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/index/start`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -526,11 +534,15 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
             const localVarQueryParameter = {} as any;
 
             if (fromBlock !== undefined) {
-                localVarQueryParameter['from_block'] = fromBlock;
+                for (const [key, value] of Object.entries(fromBlock)) {
+                    localVarQueryParameter[key] = value;
+                }
             }
 
             if (toBlock !== undefined) {
-                localVarQueryParameter['to_block'] = toBlock;
+                for (const [key, value] of Object.entries(toBlock)) {
+                    localVarQueryParameter[key] = value;
+                }
             }
 
 
@@ -601,12 +613,12 @@ export const DefaultApiFp = function(configuration?: Configuration) {
         /**
          * 
          * @summary Index Promo
-         * @param {IndexPromoIndexPromoPostFromBlockEnum} [fromBlock] 
-         * @param {IndexPromoIndexPromoPostToBlockEnum} [toBlock] 
+         * @param {any} [fromBlock] 
+         * @param {any} [toBlock] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async indexPromoIndexPromoPost(fromBlock?: IndexPromoIndexPromoPostFromBlockEnum, toBlock?: IndexPromoIndexPromoPostToBlockEnum, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>> {
+        async indexPromoIndexPromoPost(fromBlock?: any, toBlock?: any, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.indexPromoIndexPromoPost(fromBlock, toBlock, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['DefaultApi.indexPromoIndexPromoPost']?.[localVarOperationServerIndex]?.url;
@@ -615,12 +627,12 @@ export const DefaultApiFp = function(configuration?: Configuration) {
         /**
          * 
          * @summary Index Ticket
-         * @param {IndexTicketIndexTicketPostFromBlockEnum} [fromBlock] 
-         * @param {IndexTicketIndexTicketPostToBlockEnum} [toBlock] 
+         * @param {any} [fromBlock] 
+         * @param {any} [toBlock] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async indexTicketIndexTicketPost(fromBlock?: IndexTicketIndexTicketPostFromBlockEnum, toBlock?: IndexTicketIndexTicketPostToBlockEnum, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>> {
+        async indexTicketIndexTicketPost(fromBlock?: any, toBlock?: any, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.indexTicketIndexTicketPost(fromBlock, toBlock, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['DefaultApi.indexTicketIndexTicketPost']?.[localVarOperationServerIndex]?.url;
@@ -629,12 +641,12 @@ export const DefaultApiFp = function(configuration?: Configuration) {
         /**
          * 
          * @summary Start Index
-         * @param {StartIndexIndexStartPostFromBlockEnum} [fromBlock] 
-         * @param {StartIndexIndexStartPostToBlockEnum} [toBlock] 
+         * @param {any} [fromBlock] 
+         * @param {any} [toBlock] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async startIndexIndexStartPost(fromBlock?: StartIndexIndexStartPostFromBlockEnum, toBlock?: StartIndexIndexStartPostToBlockEnum, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>> {
+        async startIndexIndexStartPost(fromBlock?: any, toBlock?: any, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.startIndexIndexStartPost(fromBlock, toBlock, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['DefaultApi.startIndexIndexStartPost']?.[localVarOperationServerIndex]?.url;
@@ -688,34 +700,34 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
         /**
          * 
          * @summary Index Promo
-         * @param {IndexPromoIndexPromoPostFromBlockEnum} [fromBlock] 
-         * @param {IndexPromoIndexPromoPostToBlockEnum} [toBlock] 
+         * @param {any} [fromBlock] 
+         * @param {any} [toBlock] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        indexPromoIndexPromoPost(fromBlock?: IndexPromoIndexPromoPostFromBlockEnum, toBlock?: IndexPromoIndexPromoPostToBlockEnum, options?: any): AxiosPromise<any> {
+        indexPromoIndexPromoPost(fromBlock?: any, toBlock?: any, options?: any): AxiosPromise<any> {
             return localVarFp.indexPromoIndexPromoPost(fromBlock, toBlock, options).then((request) => request(axios, basePath));
         },
         /**
          * 
          * @summary Index Ticket
-         * @param {IndexTicketIndexTicketPostFromBlockEnum} [fromBlock] 
-         * @param {IndexTicketIndexTicketPostToBlockEnum} [toBlock] 
+         * @param {any} [fromBlock] 
+         * @param {any} [toBlock] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        indexTicketIndexTicketPost(fromBlock?: IndexTicketIndexTicketPostFromBlockEnum, toBlock?: IndexTicketIndexTicketPostToBlockEnum, options?: any): AxiosPromise<any> {
+        indexTicketIndexTicketPost(fromBlock?: any, toBlock?: any, options?: any): AxiosPromise<any> {
             return localVarFp.indexTicketIndexTicketPost(fromBlock, toBlock, options).then((request) => request(axios, basePath));
         },
         /**
          * 
          * @summary Start Index
-         * @param {StartIndexIndexStartPostFromBlockEnum} [fromBlock] 
-         * @param {StartIndexIndexStartPostToBlockEnum} [toBlock] 
+         * @param {any} [fromBlock] 
+         * @param {any} [toBlock] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        startIndexIndexStartPost(fromBlock?: StartIndexIndexStartPostFromBlockEnum, toBlock?: StartIndexIndexStartPostToBlockEnum, options?: any): AxiosPromise<any> {
+        startIndexIndexStartPost(fromBlock?: any, toBlock?: any, options?: any): AxiosPromise<any> {
             return localVarFp.startIndexIndexStartPost(fromBlock, toBlock, options).then((request) => request(axios, basePath));
         },
     };
@@ -772,108 +784,42 @@ export class DefaultApi extends BaseAPI {
     /**
      * 
      * @summary Index Promo
-     * @param {IndexPromoIndexPromoPostFromBlockEnum} [fromBlock] 
-     * @param {IndexPromoIndexPromoPostToBlockEnum} [toBlock] 
+     * @param {any} [fromBlock] 
+     * @param {any} [toBlock] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof DefaultApi
      */
-    public indexPromoIndexPromoPost(fromBlock?: IndexPromoIndexPromoPostFromBlockEnum, toBlock?: IndexPromoIndexPromoPostToBlockEnum, options?: RawAxiosRequestConfig) {
+    public indexPromoIndexPromoPost(fromBlock?: any, toBlock?: any, options?: RawAxiosRequestConfig) {
         return DefaultApiFp(this.configuration).indexPromoIndexPromoPost(fromBlock, toBlock, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * 
      * @summary Index Ticket
-     * @param {IndexTicketIndexTicketPostFromBlockEnum} [fromBlock] 
-     * @param {IndexTicketIndexTicketPostToBlockEnum} [toBlock] 
+     * @param {any} [fromBlock] 
+     * @param {any} [toBlock] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof DefaultApi
      */
-    public indexTicketIndexTicketPost(fromBlock?: IndexTicketIndexTicketPostFromBlockEnum, toBlock?: IndexTicketIndexTicketPostToBlockEnum, options?: RawAxiosRequestConfig) {
+    public indexTicketIndexTicketPost(fromBlock?: any, toBlock?: any, options?: RawAxiosRequestConfig) {
         return DefaultApiFp(this.configuration).indexTicketIndexTicketPost(fromBlock, toBlock, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * 
      * @summary Start Index
-     * @param {StartIndexIndexStartPostFromBlockEnum} [fromBlock] 
-     * @param {StartIndexIndexStartPostToBlockEnum} [toBlock] 
+     * @param {any} [fromBlock] 
+     * @param {any} [toBlock] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof DefaultApi
      */
-    public startIndexIndexStartPost(fromBlock?: StartIndexIndexStartPostFromBlockEnum, toBlock?: StartIndexIndexStartPostToBlockEnum, options?: RawAxiosRequestConfig) {
+    public startIndexIndexStartPost(fromBlock?: any, toBlock?: any, options?: RawAxiosRequestConfig) {
         return DefaultApiFp(this.configuration).startIndexIndexStartPost(fromBlock, toBlock, options).then((request) => request(this.axios, this.basePath));
     }
 }
 
-/**
- * @export
- */
-export const IndexPromoIndexPromoPostFromBlockEnum = {
-    Latest: 'latest',
-    Earliest: 'earliest',
-    Pending: 'pending',
-    Safe: 'safe',
-    Finalized: 'finalized'
-} as const;
-export type IndexPromoIndexPromoPostFromBlockEnum = typeof IndexPromoIndexPromoPostFromBlockEnum[keyof typeof IndexPromoIndexPromoPostFromBlockEnum];
-/**
- * @export
- */
-export const IndexPromoIndexPromoPostToBlockEnum = {
-    Latest: 'latest',
-    Earliest: 'earliest',
-    Pending: 'pending',
-    Safe: 'safe',
-    Finalized: 'finalized'
-} as const;
-export type IndexPromoIndexPromoPostToBlockEnum = typeof IndexPromoIndexPromoPostToBlockEnum[keyof typeof IndexPromoIndexPromoPostToBlockEnum];
-/**
- * @export
- */
-export const IndexTicketIndexTicketPostFromBlockEnum = {
-    Latest: 'latest',
-    Earliest: 'earliest',
-    Pending: 'pending',
-    Safe: 'safe',
-    Finalized: 'finalized'
-} as const;
-export type IndexTicketIndexTicketPostFromBlockEnum = typeof IndexTicketIndexTicketPostFromBlockEnum[keyof typeof IndexTicketIndexTicketPostFromBlockEnum];
-/**
- * @export
- */
-export const IndexTicketIndexTicketPostToBlockEnum = {
-    Latest: 'latest',
-    Earliest: 'earliest',
-    Pending: 'pending',
-    Safe: 'safe',
-    Finalized: 'finalized'
-} as const;
-export type IndexTicketIndexTicketPostToBlockEnum = typeof IndexTicketIndexTicketPostToBlockEnum[keyof typeof IndexTicketIndexTicketPostToBlockEnum];
-/**
- * @export
- */
-export const StartIndexIndexStartPostFromBlockEnum = {
-    Latest: 'latest',
-    Earliest: 'earliest',
-    Pending: 'pending',
-    Safe: 'safe',
-    Finalized: 'finalized'
-} as const;
-export type StartIndexIndexStartPostFromBlockEnum = typeof StartIndexIndexStartPostFromBlockEnum[keyof typeof StartIndexIndexStartPostFromBlockEnum];
-/**
- * @export
- */
-export const StartIndexIndexStartPostToBlockEnum = {
-    Latest: 'latest',
-    Earliest: 'earliest',
-    Pending: 'pending',
-    Safe: 'safe',
-    Finalized: 'finalized'
-} as const;
-export type StartIndexIndexStartPostToBlockEnum = typeof StartIndexIndexStartPostToBlockEnum[keyof typeof StartIndexIndexStartPostToBlockEnum];
 
 

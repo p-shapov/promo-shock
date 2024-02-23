@@ -61,16 +61,16 @@ export const StreamCard: FC<Props> = ({
       />
     </div>
   ));
+  const now = dayjs.utc();
   const startDate = dayjs.utc(startDateUnix);
   const endDate = dayjs.utc(endDateUnix);
   const ongoing =
-    (startDate.isBefore(dayjs.utc()) && endDate.isAfter(dayjs.utc())) ||
-    watchOnly;
+    (startDate.isBefore(now) && endDate.isAfter(now)) || watchOnly;
   const saleStartDate = dayjs.utc(saleStartDateUnix);
   const saleEndDate = dayjs.utc(saleEndDateUnix);
   const remainingAmount = totalAmount - reservedAmount;
-  const ticketsAreOut = remainingAmount === 0 && startDate.isAfter(dayjs.utc());
-  const streamHasFinished = endDate.isBefore(dayjs.utc());
+  const ticketsAreOut = remainingAmount === 0 && startDate.isAfter(now);
+  const streamHasFinished = endDate.isBefore(now);
 
   return (
     <div className={styles.wrap}>
@@ -83,7 +83,7 @@ export const StreamCard: FC<Props> = ({
         {imageElement}
         <div className={styles.row}>
           <span className={styles.subtitle}>
-            {startDate.local().format("DD.MM.YYYY")}
+            {startDate.format("DD.MM.YYYY")}
           </span>
 
           {!watchOnly && remainingAmount > 0 && !streamHasFinished && (
@@ -159,8 +159,8 @@ export const StreamCard: FC<Props> = ({
           )}
         </div>
         <span className={styles.sale_period}>
-          Selling period: {saleStartDate.local().format("DD.MM.YY")} —{" "}
-          {saleEndDate.local().format("DD.MM.YY")}
+          Selling period: {saleStartDate.format("DD.MM.YY")} —{" "}
+          {saleEndDate.format("DD.MM.YY")}
         </span>
       </div>
     </div>

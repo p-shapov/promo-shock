@@ -119,7 +119,7 @@ const NewPromo: FC = () => {
         //   );
         // }
         router.push(
-          `/promos?status=index_in_progress&highlight_address=${log?.args?.promotion?.promoAddr.toLowerCase()}`,
+          `/promos?highlight_address=${log?.args?.promotion?.promoAddr.toLowerCase()}&filters=owner`,
         );
       }),
   });

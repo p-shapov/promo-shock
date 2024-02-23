@@ -86,7 +86,7 @@ const NewStreamPass: FC = () => {
         //   );
         // }
         router.push(
-          `/streams?status=index_in_progress&highlight_address=${log?.args?.ticketSaleAddr?.toLowerCase()}`,
+          `/streams?highlight_address=${log?.args?.ticketSaleAddr?.toLowerCase()}&filters=owner`,
         );
       }),
   });

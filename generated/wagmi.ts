@@ -270,6 +270,430 @@ export const promoFactoryConfig = {
 } as const;
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Ticket
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+export const ticketAbi = [
+  { type: 'constructor', inputs: [], stateMutability: 'nonpayable' },
+  {
+    type: 'error',
+    inputs: [
+      { name: 'sender', internalType: 'address', type: 'address' },
+      { name: 'tokenId', internalType: 'uint256', type: 'uint256' },
+      { name: 'owner', internalType: 'address', type: 'address' },
+    ],
+    name: 'ERC721IncorrectOwner',
+  },
+  {
+    type: 'error',
+    inputs: [
+      { name: 'operator', internalType: 'address', type: 'address' },
+      { name: 'tokenId', internalType: 'uint256', type: 'uint256' },
+    ],
+    name: 'ERC721InsufficientApproval',
+  },
+  {
+    type: 'error',
+    inputs: [{ name: 'approver', internalType: 'address', type: 'address' }],
+    name: 'ERC721InvalidApprover',
+  },
+  {
+    type: 'error',
+    inputs: [{ name: 'operator', internalType: 'address', type: 'address' }],
+    name: 'ERC721InvalidOperator',
+  },
+  {
+    type: 'error',
+    inputs: [{ name: 'owner', internalType: 'address', type: 'address' }],
+    name: 'ERC721InvalidOwner',
+  },
+  {
+    type: 'error',
+    inputs: [{ name: 'receiver', internalType: 'address', type: 'address' }],
+    name: 'ERC721InvalidReceiver',
+  },
+  {
+    type: 'error',
+    inputs: [{ name: 'sender', internalType: 'address', type: 'address' }],
+    name: 'ERC721InvalidSender',
+  },
+  {
+    type: 'error',
+    inputs: [{ name: 'tokenId', internalType: 'uint256', type: 'uint256' }],
+    name: 'ERC721NonexistentToken',
+  },
+  { type: 'error', inputs: [], name: 'InvalidInitialization' },
+  {
+    type: 'error',
+    inputs: [{ name: 'cap', internalType: 'uint16', type: 'uint16' }],
+    name: 'MaxCollectionSizeExceeded',
+  },
+  { type: 'error', inputs: [], name: 'NotInitializing' },
+  { type: 'error', inputs: [], name: 'OnlyCreatorCanBurn' },
+  { type: 'error', inputs: [], name: 'OnlyCreatorOrOwnerCanMint' },
+  {
+    type: 'error',
+    inputs: [{ name: 'owner', internalType: 'address', type: 'address' }],
+    name: 'OwnableInvalidOwner',
+  },
+  {
+    type: 'error',
+    inputs: [{ name: 'account', internalType: 'address', type: 'address' }],
+    name: 'OwnableUnauthorizedAccount',
+  },
+  { type: 'error', inputs: [], name: 'TransfersAreNotAllowed' },
+  { type: 'error', inputs: [], name: 'ZeroAddress' },
+  { type: 'error', inputs: [], name: 'ZeroCap' },
+  {
+    type: 'event',
+    anonymous: false,
+    inputs: [
+      {
+        name: 'owner',
+        internalType: 'address',
+        type: 'address',
+        indexed: true,
+      },
+      {
+        name: 'approved',
+        internalType: 'address',
+        type: 'address',
+        indexed: true,
+      },
+      {
+        name: 'tokenId',
+        internalType: 'uint256',
+        type: 'uint256',
+        indexed: true,
+      },
+    ],
+    name: 'Approval',
+  },
+  {
+    type: 'event',
+    anonymous: false,
+    inputs: [
+      {
+        name: 'owner',
+        internalType: 'address',
+        type: 'address',
+        indexed: true,
+      },
+      {
+        name: 'operator',
+        internalType: 'address',
+        type: 'address',
+        indexed: true,
+      },
+      { name: 'approved', internalType: 'bool', type: 'bool', indexed: false },
+    ],
+    name: 'ApprovalForAll',
+  },
+  {
+    type: 'event',
+    anonymous: false,
+    inputs: [
+      {
+        name: 'baseURI',
+        internalType: 'string',
+        type: 'string',
+        indexed: false,
+      },
+    ],
+    name: 'BaseTokenURIChanged',
+  },
+  {
+    type: 'event',
+    anonymous: false,
+    inputs: [
+      {
+        name: 'version',
+        internalType: 'uint64',
+        type: 'uint64',
+        indexed: false,
+      },
+    ],
+    name: 'Initialized',
+  },
+  {
+    type: 'event',
+    anonymous: false,
+    inputs: [
+      {
+        name: 'owner',
+        internalType: 'address',
+        type: 'address',
+        indexed: true,
+      },
+      {
+        name: 'tokenId',
+        internalType: 'uint256',
+        type: 'uint256',
+        indexed: false,
+      },
+    ],
+    name: 'MintTicket',
+  },
+  {
+    type: 'event',
+    anonymous: false,
+    inputs: [
+      {
+        name: 'previousOwner',
+        internalType: 'address',
+        type: 'address',
+        indexed: true,
+      },
+      {
+        name: 'newOwner',
+        internalType: 'address',
+        type: 'address',
+        indexed: true,
+      },
+    ],
+    name: 'OwnershipTransferred',
+  },
+  {
+    type: 'event',
+    anonymous: false,
+    inputs: [
+      { name: 'from', internalType: 'address', type: 'address', indexed: true },
+      { name: 'to', internalType: 'address', type: 'address', indexed: true },
+      {
+        name: 'tokenId',
+        internalType: 'uint256',
+        type: 'uint256',
+        indexed: true,
+      },
+    ],
+    name: 'Transfer',
+  },
+  {
+    type: 'function',
+    inputs: [],
+    name: 'CAP',
+    outputs: [{ name: '', internalType: 'uint16', type: 'uint16' }],
+    stateMutability: 'view',
+  },
+  {
+    type: 'function',
+    inputs: [
+      { name: 'to', internalType: 'address', type: 'address' },
+      { name: 'tokenId', internalType: 'uint256', type: 'uint256' },
+    ],
+    name: 'approve',
+    outputs: [],
+    stateMutability: 'nonpayable',
+  },
+  {
+    type: 'function',
+    inputs: [{ name: 'owner', internalType: 'address', type: 'address' }],
+    name: 'balanceOf',
+    outputs: [{ name: '', internalType: 'uint256', type: 'uint256' }],
+    stateMutability: 'view',
+  },
+  {
+    type: 'function',
+    inputs: [
+      { name: 'auth', internalType: 'address', type: 'address' },
+      { name: 'tokenId', internalType: 'uint256', type: 'uint256' },
+    ],
+    name: 'burn',
+    outputs: [],
+    stateMutability: 'nonpayable',
+  },
+  {
+    type: 'function',
+    inputs: [],
+    name: 'getAllOwners',
+    outputs: [
+      { name: 'currentOwners', internalType: 'address[]', type: 'address[]' },
+    ],
+    stateMutability: 'view',
+  },
+  {
+    type: 'function',
+    inputs: [{ name: 'tokenId', internalType: 'uint256', type: 'uint256' }],
+    name: 'getApproved',
+    outputs: [{ name: '', internalType: 'address', type: 'address' }],
+    stateMutability: 'view',
+  },
+  {
+    type: 'function',
+    inputs: [
+      { name: 'promoFactory', internalType: 'address', type: 'address' },
+    ],
+    name: 'getAvailablePromotions',
+    outputs: [
+      {
+        name: '',
+        internalType: 'struct Promotion[]',
+        type: 'tuple[]',
+        components: [
+          { name: 'startTime', internalType: 'uint256', type: 'uint256' },
+          { name: 'endTime', internalType: 'uint256', type: 'uint256' },
+          { name: 'promoAddr', internalType: 'address', type: 'address' },
+          { name: 'streams', internalType: 'address[]', type: 'address[]' },
+          { name: 'description', internalType: 'string', type: 'string' },
+        ],
+      },
+    ],
+    stateMutability: 'view',
+  },
+  {
+    type: 'function',
+    inputs: [
+      {
+        name: 'ticket',
+        internalType: 'struct TicketParams',
+        type: 'tuple',
+        components: [
+          { name: 'name', internalType: 'string', type: 'string' },
+          { name: 'symbol', internalType: 'string', type: 'string' },
+          { name: 'baseUri', internalType: 'string', type: 'string' },
+          { name: 'cap', internalType: 'uint16', type: 'uint16' },
+        ],
+      },
+      { name: 'streamer', internalType: 'address', type: 'address' },
+    ],
+    name: 'initialize',
+    outputs: [],
+    stateMutability: 'nonpayable',
+  },
+  {
+    type: 'function',
+    inputs: [
+      { name: 'owner', internalType: 'address', type: 'address' },
+      { name: 'operator', internalType: 'address', type: 'address' },
+    ],
+    name: 'isApprovedForAll',
+    outputs: [{ name: '', internalType: 'bool', type: 'bool' }],
+    stateMutability: 'view',
+  },
+  {
+    type: 'function',
+    inputs: [],
+    name: 'name',
+    outputs: [{ name: '', internalType: 'string', type: 'string' }],
+    stateMutability: 'view',
+  },
+  {
+    type: 'function',
+    inputs: [],
+    name: 'owner',
+    outputs: [{ name: '', internalType: 'address', type: 'address' }],
+    stateMutability: 'view',
+  },
+  {
+    type: 'function',
+    inputs: [{ name: 'tokenId', internalType: 'uint256', type: 'uint256' }],
+    name: 'ownerOf',
+    outputs: [{ name: '', internalType: 'address', type: 'address' }],
+    stateMutability: 'view',
+  },
+  {
+    type: 'function',
+    inputs: [],
+    name: 'renounceOwnership',
+    outputs: [],
+    stateMutability: 'nonpayable',
+  },
+  {
+    type: 'function',
+    inputs: [{ name: 'to', internalType: 'address', type: 'address' }],
+    name: 'safeMint',
+    outputs: [{ name: 'tokenId', internalType: 'uint256', type: 'uint256' }],
+    stateMutability: 'nonpayable',
+  },
+  {
+    type: 'function',
+    inputs: [
+      { name: 'from', internalType: 'address', type: 'address' },
+      { name: 'to', internalType: 'address', type: 'address' },
+      { name: 'tokenId', internalType: 'uint256', type: 'uint256' },
+    ],
+    name: 'safeTransferFrom',
+    outputs: [],
+    stateMutability: 'nonpayable',
+  },
+  {
+    type: 'function',
+    inputs: [
+      { name: 'from', internalType: 'address', type: 'address' },
+      { name: 'to', internalType: 'address', type: 'address' },
+      { name: 'tokenId', internalType: 'uint256', type: 'uint256' },
+      { name: 'data', internalType: 'bytes', type: 'bytes' },
+    ],
+    name: 'safeTransferFrom',
+    outputs: [],
+    stateMutability: 'nonpayable',
+  },
+  {
+    type: 'function',
+    inputs: [
+      { name: 'operator', internalType: 'address', type: 'address' },
+      { name: 'approved', internalType: 'bool', type: 'bool' },
+    ],
+    name: 'setApprovalForAll',
+    outputs: [],
+    stateMutability: 'nonpayable',
+  },
+  {
+    type: 'function',
+    inputs: [{ name: 'baseTokenURI', internalType: 'string', type: 'string' }],
+    name: 'setBaseTokenURI',
+    outputs: [],
+    stateMutability: 'nonpayable',
+  },
+  {
+    type: 'function',
+    inputs: [{ name: 'interfaceId', internalType: 'bytes4', type: 'bytes4' }],
+    name: 'supportsInterface',
+    outputs: [{ name: '', internalType: 'bool', type: 'bool' }],
+    stateMutability: 'view',
+  },
+  {
+    type: 'function',
+    inputs: [],
+    name: 'symbol',
+    outputs: [{ name: '', internalType: 'string', type: 'string' }],
+    stateMutability: 'view',
+  },
+  {
+    type: 'function',
+    inputs: [{ name: '', internalType: 'uint256', type: 'uint256' }],
+    name: 'tokenURI',
+    outputs: [{ name: '', internalType: 'string', type: 'string' }],
+    stateMutability: 'view',
+  },
+  {
+    type: 'function',
+    inputs: [],
+    name: 'totalSupply',
+    outputs: [{ name: '', internalType: 'uint256', type: 'uint256' }],
+    stateMutability: 'view',
+  },
+  {
+    type: 'function',
+    inputs: [
+      { name: 'from', internalType: 'address', type: 'address' },
+      { name: 'to', internalType: 'address', type: 'address' },
+      { name: 'tokenId', internalType: 'uint256', type: 'uint256' },
+    ],
+    name: 'transferFrom',
+    outputs: [],
+    stateMutability: 'nonpayable',
+  },
+  {
+    type: 'function',
+    inputs: [{ name: 'newOwner', internalType: 'address', type: 'address' }],
+    name: 'transferOwnership',
+    outputs: [],
+    stateMutability: 'nonpayable',
+  },
+] as const;
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // TicketFactory
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -1223,6 +1647,376 @@ export const useWatchPromoFactoryPromotionCreatedEvent =
   });
 
 /**
+ * Wraps __{@link useReadContract}__ with `abi` set to __{@link ticketAbi}__
+ */
+export const useReadTicket = /*#__PURE__*/ createUseReadContract({
+  abi: ticketAbi,
+});
+
+/**
+ * Wraps __{@link useReadContract}__ with `abi` set to __{@link ticketAbi}__ and `functionName` set to `"CAP"`
+ */
+export const useReadTicketCap = /*#__PURE__*/ createUseReadContract({
+  abi: ticketAbi,
+  functionName: 'CAP',
+});
+
+/**
+ * Wraps __{@link useReadContract}__ with `abi` set to __{@link ticketAbi}__ and `functionName` set to `"balanceOf"`
+ */
+export const useReadTicketBalanceOf = /*#__PURE__*/ createUseReadContract({
+  abi: ticketAbi,
+  functionName: 'balanceOf',
+});
+
+/**
+ * Wraps __{@link useReadContract}__ with `abi` set to __{@link ticketAbi}__ and `functionName` set to `"getAllOwners"`
+ */
+export const useReadTicketGetAllOwners = /*#__PURE__*/ createUseReadContract({
+  abi: ticketAbi,
+  functionName: 'getAllOwners',
+});
+
+/**
+ * Wraps __{@link useReadContract}__ with `abi` set to __{@link ticketAbi}__ and `functionName` set to `"getApproved"`
+ */
+export const useReadTicketGetApproved = /*#__PURE__*/ createUseReadContract({
+  abi: ticketAbi,
+  functionName: 'getApproved',
+});
+
+/**
+ * Wraps __{@link useReadContract}__ with `abi` set to __{@link ticketAbi}__ and `functionName` set to `"getAvailablePromotions"`
+ */
+export const useReadTicketGetAvailablePromotions =
+  /*#__PURE__*/ createUseReadContract({
+    abi: ticketAbi,
+    functionName: 'getAvailablePromotions',
+  });
+
+/**
+ * Wraps __{@link useReadContract}__ with `abi` set to __{@link ticketAbi}__ and `functionName` set to `"isApprovedForAll"`
+ */
+export const useReadTicketIsApprovedForAll =
+  /*#__PURE__*/ createUseReadContract({
+    abi: ticketAbi,
+    functionName: 'isApprovedForAll',
+  });
+
+/**
+ * Wraps __{@link useReadContract}__ with `abi` set to __{@link ticketAbi}__ and `functionName` set to `"name"`
+ */
+export const useReadTicketName = /*#__PURE__*/ createUseReadContract({
+  abi: ticketAbi,
+  functionName: 'name',
+});
+
+/**
+ * Wraps __{@link useReadContract}__ with `abi` set to __{@link ticketAbi}__ and `functionName` set to `"owner"`
+ */
+export const useReadTicketOwner = /*#__PURE__*/ createUseReadContract({
+  abi: ticketAbi,
+  functionName: 'owner',
+});
+
+/**
+ * Wraps __{@link useReadContract}__ with `abi` set to __{@link ticketAbi}__ and `functionName` set to `"ownerOf"`
+ */
+export const useReadTicketOwnerOf = /*#__PURE__*/ createUseReadContract({
+  abi: ticketAbi,
+  functionName: 'ownerOf',
+});
+
+/**
+ * Wraps __{@link useReadContract}__ with `abi` set to __{@link ticketAbi}__ and `functionName` set to `"supportsInterface"`
+ */
+export const useReadTicketSupportsInterface =
+  /*#__PURE__*/ createUseReadContract({
+    abi: ticketAbi,
+    functionName: 'supportsInterface',
+  });
+
+/**
+ * Wraps __{@link useReadContract}__ with `abi` set to __{@link ticketAbi}__ and `functionName` set to `"symbol"`
+ */
+export const useReadTicketSymbol = /*#__PURE__*/ createUseReadContract({
+  abi: ticketAbi,
+  functionName: 'symbol',
+});
+
+/**
+ * Wraps __{@link useReadContract}__ with `abi` set to __{@link ticketAbi}__ and `functionName` set to `"tokenURI"`
+ */
+export const useReadTicketTokenUri = /*#__PURE__*/ createUseReadContract({
+  abi: ticketAbi,
+  functionName: 'tokenURI',
+});
+
+/**
+ * Wraps __{@link useReadContract}__ with `abi` set to __{@link ticketAbi}__ and `functionName` set to `"totalSupply"`
+ */
+export const useReadTicketTotalSupply = /*#__PURE__*/ createUseReadContract({
+  abi: ticketAbi,
+  functionName: 'totalSupply',
+});
+
+/**
+ * Wraps __{@link useWriteContract}__ with `abi` set to __{@link ticketAbi}__
+ */
+export const useWriteTicket = /*#__PURE__*/ createUseWriteContract({
+  abi: ticketAbi,
+});
+
+/**
+ * Wraps __{@link useWriteContract}__ with `abi` set to __{@link ticketAbi}__ and `functionName` set to `"approve"`
+ */
+export const useWriteTicketApprove = /*#__PURE__*/ createUseWriteContract({
+  abi: ticketAbi,
+  functionName: 'approve',
+});
+
+/**
+ * Wraps __{@link useWriteContract}__ with `abi` set to __{@link ticketAbi}__ and `functionName` set to `"burn"`
+ */
+export const useWriteTicketBurn = /*#__PURE__*/ createUseWriteContract({
+  abi: ticketAbi,
+  functionName: 'burn',
+});
+
+/**
+ * Wraps __{@link useWriteContract}__ with `abi` set to __{@link ticketAbi}__ and `functionName` set to `"initialize"`
+ */
+export const useWriteTicketInitialize = /*#__PURE__*/ createUseWriteContract({
+  abi: ticketAbi,
+  functionName: 'initialize',
+});
+
+/**
+ * Wraps __{@link useWriteContract}__ with `abi` set to __{@link ticketAbi}__ and `functionName` set to `"renounceOwnership"`
+ */
+export const useWriteTicketRenounceOwnership =
+  /*#__PURE__*/ createUseWriteContract({
+    abi: ticketAbi,
+    functionName: 'renounceOwnership',
+  });
+
+/**
+ * Wraps __{@link useWriteContract}__ with `abi` set to __{@link ticketAbi}__ and `functionName` set to `"safeMint"`
+ */
+export const useWriteTicketSafeMint = /*#__PURE__*/ createUseWriteContract({
+  abi: ticketAbi,
+  functionName: 'safeMint',
+});
+
+/**
+ * Wraps __{@link useWriteContract}__ with `abi` set to __{@link ticketAbi}__ and `functionName` set to `"safeTransferFrom"`
+ */
+export const useWriteTicketSafeTransferFrom =
+  /*#__PURE__*/ createUseWriteContract({
+    abi: ticketAbi,
+    functionName: 'safeTransferFrom',
+  });
+
+/**
+ * Wraps __{@link useWriteContract}__ with `abi` set to __{@link ticketAbi}__ and `functionName` set to `"setApprovalForAll"`
+ */
+export const useWriteTicketSetApprovalForAll =
+  /*#__PURE__*/ createUseWriteContract({
+    abi: ticketAbi,
+    functionName: 'setApprovalForAll',
+  });
+
+/**
+ * Wraps __{@link useWriteContract}__ with `abi` set to __{@link ticketAbi}__ and `functionName` set to `"setBaseTokenURI"`
+ */
+export const useWriteTicketSetBaseTokenUri =
+  /*#__PURE__*/ createUseWriteContract({
+    abi: ticketAbi,
+    functionName: 'setBaseTokenURI',
+  });
+
+/**
+ * Wraps __{@link useWriteContract}__ with `abi` set to __{@link ticketAbi}__ and `functionName` set to `"transferFrom"`
+ */
+export const useWriteTicketTransferFrom = /*#__PURE__*/ createUseWriteContract({
+  abi: ticketAbi,
+  functionName: 'transferFrom',
+});
+
+/**
+ * Wraps __{@link useWriteContract}__ with `abi` set to __{@link ticketAbi}__ and `functionName` set to `"transferOwnership"`
+ */
+export const useWriteTicketTransferOwnership =
+  /*#__PURE__*/ createUseWriteContract({
+    abi: ticketAbi,
+    functionName: 'transferOwnership',
+  });
+
+/**
+ * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link ticketAbi}__
+ */
+export const useSimulateTicket = /*#__PURE__*/ createUseSimulateContract({
+  abi: ticketAbi,
+});
+
+/**
+ * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link ticketAbi}__ and `functionName` set to `"approve"`
+ */
+export const useSimulateTicketApprove = /*#__PURE__*/ createUseSimulateContract(
+  { abi: ticketAbi, functionName: 'approve' },
+);
+
+/**
+ * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link ticketAbi}__ and `functionName` set to `"burn"`
+ */
+export const useSimulateTicketBurn = /*#__PURE__*/ createUseSimulateContract({
+  abi: ticketAbi,
+  functionName: 'burn',
+});
+
+/**
+ * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link ticketAbi}__ and `functionName` set to `"initialize"`
+ */
+export const useSimulateTicketInitialize =
+  /*#__PURE__*/ createUseSimulateContract({
+    abi: ticketAbi,
+    functionName: 'initialize',
+  });
+
+/**
+ * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link ticketAbi}__ and `functionName` set to `"renounceOwnership"`
+ */
+export const useSimulateTicketRenounceOwnership =
+  /*#__PURE__*/ createUseSimulateContract({
+    abi: ticketAbi,
+    functionName: 'renounceOwnership',
+  });
+
+/**
+ * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link ticketAbi}__ and `functionName` set to `"safeMint"`
+ */
+export const useSimulateTicketSafeMint =
+  /*#__PURE__*/ createUseSimulateContract({
+    abi: ticketAbi,
+    functionName: 'safeMint',
+  });
+
+/**
+ * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link ticketAbi}__ and `functionName` set to `"safeTransferFrom"`
+ */
+export const useSimulateTicketSafeTransferFrom =
+  /*#__PURE__*/ createUseSimulateContract({
+    abi: ticketAbi,
+    functionName: 'safeTransferFrom',
+  });
+
+/**
+ * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link ticketAbi}__ and `functionName` set to `"setApprovalForAll"`
+ */
+export const useSimulateTicketSetApprovalForAll =
+  /*#__PURE__*/ createUseSimulateContract({
+    abi: ticketAbi,
+    functionName: 'setApprovalForAll',
+  });
+
+/**
+ * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link ticketAbi}__ and `functionName` set to `"setBaseTokenURI"`
+ */
+export const useSimulateTicketSetBaseTokenUri =
+  /*#__PURE__*/ createUseSimulateContract({
+    abi: ticketAbi,
+    functionName: 'setBaseTokenURI',
+  });
+
+/**
+ * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link ticketAbi}__ and `functionName` set to `"transferFrom"`
+ */
+export const useSimulateTicketTransferFrom =
+  /*#__PURE__*/ createUseSimulateContract({
+    abi: ticketAbi,
+    functionName: 'transferFrom',
+  });
+
+/**
+ * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link ticketAbi}__ and `functionName` set to `"transferOwnership"`
+ */
+export const useSimulateTicketTransferOwnership =
+  /*#__PURE__*/ createUseSimulateContract({
+    abi: ticketAbi,
+    functionName: 'transferOwnership',
+  });
+
+/**
+ * Wraps __{@link useWatchContractEvent}__ with `abi` set to __{@link ticketAbi}__
+ */
+export const useWatchTicketEvent = /*#__PURE__*/ createUseWatchContractEvent({
+  abi: ticketAbi,
+});
+
+/**
+ * Wraps __{@link useWatchContractEvent}__ with `abi` set to __{@link ticketAbi}__ and `eventName` set to `"Approval"`
+ */
+export const useWatchTicketApprovalEvent =
+  /*#__PURE__*/ createUseWatchContractEvent({
+    abi: ticketAbi,
+    eventName: 'Approval',
+  });
+
+/**
+ * Wraps __{@link useWatchContractEvent}__ with `abi` set to __{@link ticketAbi}__ and `eventName` set to `"ApprovalForAll"`
+ */
+export const useWatchTicketApprovalForAllEvent =
+  /*#__PURE__*/ createUseWatchContractEvent({
+    abi: ticketAbi,
+    eventName: 'ApprovalForAll',
+  });
+
+/**
+ * Wraps __{@link useWatchContractEvent}__ with `abi` set to __{@link ticketAbi}__ and `eventName` set to `"BaseTokenURIChanged"`
+ */
+export const useWatchTicketBaseTokenUriChangedEvent =
+  /*#__PURE__*/ createUseWatchContractEvent({
+    abi: ticketAbi,
+    eventName: 'BaseTokenURIChanged',
+  });
+
+/**
+ * Wraps __{@link useWatchContractEvent}__ with `abi` set to __{@link ticketAbi}__ and `eventName` set to `"Initialized"`
+ */
+export const useWatchTicketInitializedEvent =
+  /*#__PURE__*/ createUseWatchContractEvent({
+    abi: ticketAbi,
+    eventName: 'Initialized',
+  });
+
+/**
+ * Wraps __{@link useWatchContractEvent}__ with `abi` set to __{@link ticketAbi}__ and `eventName` set to `"MintTicket"`
+ */
+export const useWatchTicketMintTicketEvent =
+  /*#__PURE__*/ createUseWatchContractEvent({
+    abi: ticketAbi,
+    eventName: 'MintTicket',
+  });
+
+/**
+ * Wraps __{@link useWatchContractEvent}__ with `abi` set to __{@link ticketAbi}__ and `eventName` set to `"OwnershipTransferred"`
+ */
+export const useWatchTicketOwnershipTransferredEvent =
+  /*#__PURE__*/ createUseWatchContractEvent({
+    abi: ticketAbi,
+    eventName: 'OwnershipTransferred',
+  });
+
+/**
+ * Wraps __{@link useWatchContractEvent}__ with `abi` set to __{@link ticketAbi}__ and `eventName` set to `"Transfer"`
+ */
+export const useWatchTicketTransferEvent =
+  /*#__PURE__*/ createUseWatchContractEvent({
+    abi: ticketAbi,
+    eventName: 'Transfer',
+  });
+
+/**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link ticketFactoryAbi}__
  */
 export const useReadTicketFactory = /*#__PURE__*/ createUseReadContract({
@@ -2091,6 +2885,363 @@ export const watchPromoFactoryPromotionCreatedEvent =
     address: promoFactoryAddress,
     eventName: 'PromotionCreated',
   });
+
+/**
+ * Wraps __{@link readContract}__ with `abi` set to __{@link ticketAbi}__
+ */
+export const readTicket = /*#__PURE__*/ createReadContract({ abi: ticketAbi });
+
+/**
+ * Wraps __{@link readContract}__ with `abi` set to __{@link ticketAbi}__ and `functionName` set to `"CAP"`
+ */
+export const readTicketCap = /*#__PURE__*/ createReadContract({
+  abi: ticketAbi,
+  functionName: 'CAP',
+});
+
+/**
+ * Wraps __{@link readContract}__ with `abi` set to __{@link ticketAbi}__ and `functionName` set to `"balanceOf"`
+ */
+export const readTicketBalanceOf = /*#__PURE__*/ createReadContract({
+  abi: ticketAbi,
+  functionName: 'balanceOf',
+});
+
+/**
+ * Wraps __{@link readContract}__ with `abi` set to __{@link ticketAbi}__ and `functionName` set to `"getAllOwners"`
+ */
+export const readTicketGetAllOwners = /*#__PURE__*/ createReadContract({
+  abi: ticketAbi,
+  functionName: 'getAllOwners',
+});
+
+/**
+ * Wraps __{@link readContract}__ with `abi` set to __{@link ticketAbi}__ and `functionName` set to `"getApproved"`
+ */
+export const readTicketGetApproved = /*#__PURE__*/ createReadContract({
+  abi: ticketAbi,
+  functionName: 'getApproved',
+});
+
+/**
+ * Wraps __{@link readContract}__ with `abi` set to __{@link ticketAbi}__ and `functionName` set to `"getAvailablePromotions"`
+ */
+export const readTicketGetAvailablePromotions =
+  /*#__PURE__*/ createReadContract({
+    abi: ticketAbi,
+    functionName: 'getAvailablePromotions',
+  });
+
+/**
+ * Wraps __{@link readContract}__ with `abi` set to __{@link ticketAbi}__ and `functionName` set to `"isApprovedForAll"`
+ */
+export const readTicketIsApprovedForAll = /*#__PURE__*/ createReadContract({
+  abi: ticketAbi,
+  functionName: 'isApprovedForAll',
+});
+
+/**
+ * Wraps __{@link readContract}__ with `abi` set to __{@link ticketAbi}__ and `functionName` set to `"name"`
+ */
+export const readTicketName = /*#__PURE__*/ createReadContract({
+  abi: ticketAbi,
+  functionName: 'name',
+});
+
+/**
+ * Wraps __{@link readContract}__ with `abi` set to __{@link ticketAbi}__ and `functionName` set to `"owner"`
+ */
+export const readTicketOwner = /*#__PURE__*/ createReadContract({
+  abi: ticketAbi,
+  functionName: 'owner',
+});
+
+/**
+ * Wraps __{@link readContract}__ with `abi` set to __{@link ticketAbi}__ and `functionName` set to `"ownerOf"`
+ */
+export const readTicketOwnerOf = /*#__PURE__*/ createReadContract({
+  abi: ticketAbi,
+  functionName: 'ownerOf',
+});
+
+/**
+ * Wraps __{@link readContract}__ with `abi` set to __{@link ticketAbi}__ and `functionName` set to `"supportsInterface"`
+ */
+export const readTicketSupportsInterface = /*#__PURE__*/ createReadContract({
+  abi: ticketAbi,
+  functionName: 'supportsInterface',
+});
+
+/**
+ * Wraps __{@link readContract}__ with `abi` set to __{@link ticketAbi}__ and `functionName` set to `"symbol"`
+ */
+export const readTicketSymbol = /*#__PURE__*/ createReadContract({
+  abi: ticketAbi,
+  functionName: 'symbol',
+});
+
+/**
+ * Wraps __{@link readContract}__ with `abi` set to __{@link ticketAbi}__ and `functionName` set to `"tokenURI"`
+ */
+export const readTicketTokenUri = /*#__PURE__*/ createReadContract({
+  abi: ticketAbi,
+  functionName: 'tokenURI',
+});
+
+/**
+ * Wraps __{@link readContract}__ with `abi` set to __{@link ticketAbi}__ and `functionName` set to `"totalSupply"`
+ */
+export const readTicketTotalSupply = /*#__PURE__*/ createReadContract({
+  abi: ticketAbi,
+  functionName: 'totalSupply',
+});
+
+/**
+ * Wraps __{@link writeContract}__ with `abi` set to __{@link ticketAbi}__
+ */
+export const writeTicket = /*#__PURE__*/ createWriteContract({
+  abi: ticketAbi,
+});
+
+/**
+ * Wraps __{@link writeContract}__ with `abi` set to __{@link ticketAbi}__ and `functionName` set to `"approve"`
+ */
+export const writeTicketApprove = /*#__PURE__*/ createWriteContract({
+  abi: ticketAbi,
+  functionName: 'approve',
+});
+
+/**
+ * Wraps __{@link writeContract}__ with `abi` set to __{@link ticketAbi}__ and `functionName` set to `"burn"`
+ */
+export const writeTicketBurn = /*#__PURE__*/ createWriteContract({
+  abi: ticketAbi,
+  functionName: 'burn',
+});
+
+/**
+ * Wraps __{@link writeContract}__ with `abi` set to __{@link ticketAbi}__ and `functionName` set to `"initialize"`
+ */
+export const writeTicketInitialize = /*#__PURE__*/ createWriteContract({
+  abi: ticketAbi,
+  functionName: 'initialize',
+});
+
+/**
+ * Wraps __{@link writeContract}__ with `abi` set to __{@link ticketAbi}__ and `functionName` set to `"renounceOwnership"`
+ */
+export const writeTicketRenounceOwnership = /*#__PURE__*/ createWriteContract({
+  abi: ticketAbi,
+  functionName: 'renounceOwnership',
+});
+
+/**
+ * Wraps __{@link writeContract}__ with `abi` set to __{@link ticketAbi}__ and `functionName` set to `"safeMint"`
+ */
+export const writeTicketSafeMint = /*#__PURE__*/ createWriteContract({
+  abi: ticketAbi,
+  functionName: 'safeMint',
+});
+
+/**
+ * Wraps __{@link writeContract}__ with `abi` set to __{@link ticketAbi}__ and `functionName` set to `"safeTransferFrom"`
+ */
+export const writeTicketSafeTransferFrom = /*#__PURE__*/ createWriteContract({
+  abi: ticketAbi,
+  functionName: 'safeTransferFrom',
+});
+
+/**
+ * Wraps __{@link writeContract}__ with `abi` set to __{@link ticketAbi}__ and `functionName` set to `"setApprovalForAll"`
+ */
+export const writeTicketSetApprovalForAll = /*#__PURE__*/ createWriteContract({
+  abi: ticketAbi,
+  functionName: 'setApprovalForAll',
+});
+
+/**
+ * Wraps __{@link writeContract}__ with `abi` set to __{@link ticketAbi}__ and `functionName` set to `"setBaseTokenURI"`
+ */
+export const writeTicketSetBaseTokenUri = /*#__PURE__*/ createWriteContract({
+  abi: ticketAbi,
+  functionName: 'setBaseTokenURI',
+});
+
+/**
+ * Wraps __{@link writeContract}__ with `abi` set to __{@link ticketAbi}__ and `functionName` set to `"transferFrom"`
+ */
+export const writeTicketTransferFrom = /*#__PURE__*/ createWriteContract({
+  abi: ticketAbi,
+  functionName: 'transferFrom',
+});
+
+/**
+ * Wraps __{@link writeContract}__ with `abi` set to __{@link ticketAbi}__ and `functionName` set to `"transferOwnership"`
+ */
+export const writeTicketTransferOwnership = /*#__PURE__*/ createWriteContract({
+  abi: ticketAbi,
+  functionName: 'transferOwnership',
+});
+
+/**
+ * Wraps __{@link simulateContract}__ with `abi` set to __{@link ticketAbi}__
+ */
+export const simulateTicket = /*#__PURE__*/ createSimulateContract({
+  abi: ticketAbi,
+});
+
+/**
+ * Wraps __{@link simulateContract}__ with `abi` set to __{@link ticketAbi}__ and `functionName` set to `"approve"`
+ */
+export const simulateTicketApprove = /*#__PURE__*/ createSimulateContract({
+  abi: ticketAbi,
+  functionName: 'approve',
+});
+
+/**
+ * Wraps __{@link simulateContract}__ with `abi` set to __{@link ticketAbi}__ and `functionName` set to `"burn"`
+ */
+export const simulateTicketBurn = /*#__PURE__*/ createSimulateContract({
+  abi: ticketAbi,
+  functionName: 'burn',
+});
+
+/**
+ * Wraps __{@link simulateContract}__ with `abi` set to __{@link ticketAbi}__ and `functionName` set to `"initialize"`
+ */
+export const simulateTicketInitialize = /*#__PURE__*/ createSimulateContract({
+  abi: ticketAbi,
+  functionName: 'initialize',
+});
+
+/**
+ * Wraps __{@link simulateContract}__ with `abi` set to __{@link ticketAbi}__ and `functionName` set to `"renounceOwnership"`
+ */
+export const simulateTicketRenounceOwnership =
+  /*#__PURE__*/ createSimulateContract({
+    abi: ticketAbi,
+    functionName: 'renounceOwnership',
+  });
+
+/**
+ * Wraps __{@link simulateContract}__ with `abi` set to __{@link ticketAbi}__ and `functionName` set to `"safeMint"`
+ */
+export const simulateTicketSafeMint = /*#__PURE__*/ createSimulateContract({
+  abi: ticketAbi,
+  functionName: 'safeMint',
+});
+
+/**
+ * Wraps __{@link simulateContract}__ with `abi` set to __{@link ticketAbi}__ and `functionName` set to `"safeTransferFrom"`
+ */
+export const simulateTicketSafeTransferFrom =
+  /*#__PURE__*/ createSimulateContract({
+    abi: ticketAbi,
+    functionName: 'safeTransferFrom',
+  });
+
+/**
+ * Wraps __{@link simulateContract}__ with `abi` set to __{@link ticketAbi}__ and `functionName` set to `"setApprovalForAll"`
+ */
+export const simulateTicketSetApprovalForAll =
+  /*#__PURE__*/ createSimulateContract({
+    abi: ticketAbi,
+    functionName: 'setApprovalForAll',
+  });
+
+/**
+ * Wraps __{@link simulateContract}__ with `abi` set to __{@link ticketAbi}__ and `functionName` set to `"setBaseTokenURI"`
+ */
+export const simulateTicketSetBaseTokenUri =
+  /*#__PURE__*/ createSimulateContract({
+    abi: ticketAbi,
+    functionName: 'setBaseTokenURI',
+  });
+
+/**
+ * Wraps __{@link simulateContract}__ with `abi` set to __{@link ticketAbi}__ and `functionName` set to `"transferFrom"`
+ */
+export const simulateTicketTransferFrom = /*#__PURE__*/ createSimulateContract({
+  abi: ticketAbi,
+  functionName: 'transferFrom',
+});
+
+/**
+ * Wraps __{@link simulateContract}__ with `abi` set to __{@link ticketAbi}__ and `functionName` set to `"transferOwnership"`
+ */
+export const simulateTicketTransferOwnership =
+  /*#__PURE__*/ createSimulateContract({
+    abi: ticketAbi,
+    functionName: 'transferOwnership',
+  });
+
+/**
+ * Wraps __{@link watchContractEvent}__ with `abi` set to __{@link ticketAbi}__
+ */
+export const watchTicketEvent = /*#__PURE__*/ createWatchContractEvent({
+  abi: ticketAbi,
+});
+
+/**
+ * Wraps __{@link watchContractEvent}__ with `abi` set to __{@link ticketAbi}__ and `eventName` set to `"Approval"`
+ */
+export const watchTicketApprovalEvent = /*#__PURE__*/ createWatchContractEvent({
+  abi: ticketAbi,
+  eventName: 'Approval',
+});
+
+/**
+ * Wraps __{@link watchContractEvent}__ with `abi` set to __{@link ticketAbi}__ and `eventName` set to `"ApprovalForAll"`
+ */
+export const watchTicketApprovalForAllEvent =
+  /*#__PURE__*/ createWatchContractEvent({
+    abi: ticketAbi,
+    eventName: 'ApprovalForAll',
+  });
+
+/**
+ * Wraps __{@link watchContractEvent}__ with `abi` set to __{@link ticketAbi}__ and `eventName` set to `"BaseTokenURIChanged"`
+ */
+export const watchTicketBaseTokenUriChangedEvent =
+  /*#__PURE__*/ createWatchContractEvent({
+    abi: ticketAbi,
+    eventName: 'BaseTokenURIChanged',
+  });
+
+/**
+ * Wraps __{@link watchContractEvent}__ with `abi` set to __{@link ticketAbi}__ and `eventName` set to `"Initialized"`
+ */
+export const watchTicketInitializedEvent =
+  /*#__PURE__*/ createWatchContractEvent({
+    abi: ticketAbi,
+    eventName: 'Initialized',
+  });
+
+/**
+ * Wraps __{@link watchContractEvent}__ with `abi` set to __{@link ticketAbi}__ and `eventName` set to `"MintTicket"`
+ */
+export const watchTicketMintTicketEvent =
+  /*#__PURE__*/ createWatchContractEvent({
+    abi: ticketAbi,
+    eventName: 'MintTicket',
+  });
+
+/**
+ * Wraps __{@link watchContractEvent}__ with `abi` set to __{@link ticketAbi}__ and `eventName` set to `"OwnershipTransferred"`
+ */
+export const watchTicketOwnershipTransferredEvent =
+  /*#__PURE__*/ createWatchContractEvent({
+    abi: ticketAbi,
+    eventName: 'OwnershipTransferred',
+  });
+
+/**
+ * Wraps __{@link watchContractEvent}__ with `abi` set to __{@link ticketAbi}__ and `eventName` set to `"Transfer"`
+ */
+export const watchTicketTransferEvent = /*#__PURE__*/ createWatchContractEvent({
+  abi: ticketAbi,
+  eventName: 'Transfer',
+});
 
 /**
  * Wraps __{@link readContract}__ with `abi` set to __{@link ticketFactoryAbi}__

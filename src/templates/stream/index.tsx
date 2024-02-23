@@ -72,6 +72,7 @@ export const Stream: FC<Props> = ({
   ));
   const buy = useWriteTicketSaleBuy();
   const [pending, setPending] = useState(false);
+  const [bought, setBought] = useState(false);
   const account = useAccount();
   const accountTicketBalance = useReadTicketBalanceOf({
     address: ticketAddress,
@@ -96,6 +97,7 @@ export const Stream: FC<Props> = ({
         address: saleAddress,
         chainId: Number(process.env.NEXT_PUBLIC_BSC_CHAIN_ID),
       });
+      setBought(true);
     } catch (e) {
       console.error(e);
     } finally {
@@ -104,7 +106,8 @@ export const Stream: FC<Props> = ({
   };
 
   const purchased =
-    !!accountTicketBalance.data && accountTicketBalance.data !== BigInt(0);
+    (!!accountTicketBalance.data && accountTicketBalance.data !== BigInt(0)) ||
+    bought;
   const disabled =
     saleHasFinished || saleHasNotStarted || ticketsAreOut || purchased;
   const loading = accountTicketBalance.isLoading && !disabled;

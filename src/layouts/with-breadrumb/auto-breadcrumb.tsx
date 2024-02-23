@@ -6,7 +6,7 @@ import React from "react";
 import { Breadcrumb } from "@promo-shock/ui-kit";
 
 type Props = {
-  tailTitle: string;
+  tailTitle?: string;
 };
 
 const AutoBreadcrumb: FC<Props> = ({ tailTitle }) => {

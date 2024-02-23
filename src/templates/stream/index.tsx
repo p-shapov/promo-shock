@@ -79,16 +79,17 @@ export const Stream: FC<Props> = ({
     args: account.address && [account.address],
   });
 
-  const startDate = dayjs(startDateUnix);
-  const endDate = dayjs(endDateUnix);
-  const saleEndDate = dayjs(saleEndDateUnix);
-  const saleStartDate = dayjs(saleStartDateUnix);
+  const startDate = dayjs.utc(startDateUnix);
+  const endDate = dayjs.utc(endDateUnix);
+  const saleEndDate = dayjs.utc(saleEndDateUnix);
+  const saleStartDate = dayjs.utc(saleStartDateUnix);
   const remainingAmount = totalAmount - reservedAmount;
-  const ticketsAreOut = remainingAmount === 0 && startDate.isAfter(dayjs());
-  const saleHasFinished = saleEndDate.isBefore(dayjs());
-  const saleHasNotStarted = saleStartDate.isAfter(dayjs());
-  const streamHasFinished = endDate.isBefore(dayjs());
-  const ongoing = startDate.isBefore(dayjs()) && endDate.isAfter(dayjs());
+  const ticketsAreOut = remainingAmount === 0 && startDate.isAfter(dayjs.utc());
+  const saleHasFinished = saleEndDate.isBefore(dayjs.utc());
+  const saleHasNotStarted = saleStartDate.isAfter(dayjs.utc());
+  const streamHasFinished = endDate.isBefore(dayjs.utc());
+  const ongoing =
+    startDate.isBefore(dayjs.utc()) && endDate.isAfter(dayjs.utc());
 
   const handleBuy = async () => {
     try {
@@ -132,12 +133,12 @@ export const Stream: FC<Props> = ({
             <span>
               <div className={styles.streamStarts}>Stream starts</div>
               <span className={styles.subtitle}>
-                {startDate.format("DD.MM.YY, HH:MM")} —{" "}
-                {endDate.format("HH:MM")}
+                {startDate.local().format("DD.MM.YY, HH:MM")} —{" "}
+                {endDate.local().format("HH:MM")}
               </span>
             </span>
 
-            {remainingAmount > 0 && startDate.isAfter(dayjs()) && (
+            {remainingAmount > 0 && startDate.isAfter(dayjs.utc()) && (
               <span className={styles.subtitle}>
                 {remainingAmount < 5 ? (
                   <span className={styles.fire}>🔥</span>
@@ -178,8 +179,8 @@ export const Stream: FC<Props> = ({
             onClick={handleBuy}
           />
           <span className={styles.sale_period}>
-            Selling period: {saleStartDate.format("DD.MM.YY, HH:mm")} —{" "}
-            {saleEndDate.format("DD.MM.YY, HH:mm")}
+            Selling period: {saleStartDate.local().format("DD.MM.YY, HH:mm")} —{" "}
+            {saleEndDate.local().format("DD.MM.YY, HH:mm")}
             {saleHasFinished && <> is over now</>}
             {saleHasNotStarted && <>. Stay tuned!</>}
           </span>

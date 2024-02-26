@@ -41,7 +41,6 @@ const withSwitchNetwork = <T extends ComponentProps<typeof Button>>(
       const loading = (props.loading || pending) && !disabled;
       const wrongChain =
         chainId !== Number(process.env.NEXT_PUBLIC_BSC_CHAIN_ID) &&
-        props.error &&
         !disabled &&
         !loading;
 

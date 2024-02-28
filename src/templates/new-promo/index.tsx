@@ -34,7 +34,6 @@ import {
   Button,
 } from "@promo-shock/ui-kit";
 
-import { errorMap } from "./errors";
 import { writeMetadata } from "./mutations";
 import classes from "./new-promo.module.scss";
 import { formSchema } from "./schema";
@@ -55,7 +54,7 @@ const NewPromo: FC = () => {
     handleSubmit,
     formState: { errors, isDirty },
   } = useForm<FormData>({
-    resolver: zodResolver(formSchema, { errorMap }),
+    resolver: zodResolver(formSchema),
     defaultValues: {
       promo_stream_addresses: [{ value: "" as Address }],
     },

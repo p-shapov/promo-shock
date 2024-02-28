@@ -34,7 +34,6 @@ import {
   TextField,
 } from "@promo-shock/ui-kit";
 
-import { errorMap } from "./errors";
 import { writeMetadata } from "./mutations";
 import classes from "./new-stream-pass.module.scss";
 import { formSchema } from "./schema";
@@ -49,7 +48,7 @@ const NewStreamPass: FC = () => {
     formState: { errors, isDirty },
     handleSubmit,
   } = useForm<FormData>({
-    resolver: zodResolver(formSchema, { errorMap }),
+    resolver: zodResolver(formSchema),
     shouldFocusError: false,
   });
   const router = useRouter();

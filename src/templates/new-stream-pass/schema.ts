@@ -21,12 +21,19 @@ const formSchema = z.object({
         ? { message: "Cap is required" }
         : { message: issue.message || "Invalid input" },
   }),
-  stream_sale_time: z.tuple([zDayjs(), zDayjs()], {
-    errorMap: (issue) =>
-      issue.code === z.ZodIssueCode.invalid_type
-        ? { message: "Sale time is required" }
-        : { message: issue.message || "Invalid input" },
-  }),
+  stream_sale_time: z
+    .tuple([zDayjs(), zDayjs()], {
+      errorMap: (issue) =>
+        issue.code === z.ZodIssueCode.invalid_type
+          ? { message: "Sale time is required" }
+          : { message: issue.message || "Invalid input" },
+    })
+    .refine(([start, end]) => end.diff(start, "day") !== 0, {
+      message: "Sale time must be at least 1 day",
+    })
+    .refine(([start, end]) => end.diff(start, "day") <= 30, {
+      message: "Sale time must be at most 30 days",
+    }),
   stream_description: z
     .string({
       errorMap: (issue) =>
@@ -42,11 +49,7 @@ const formSchema = z.object({
         : { message: issue.message || "Invalid input" },
   }),
   stream_date: zDayjs({
-    errorMap: (issue) =>
-      issue.code === z.ZodIssueCode.invalid_type ||
-      issue.code === z.ZodIssueCode.custom
-        ? { message: "Date is required" }
-        : { message: issue.message || "Invalid input" },
+    message: "Date is required",
   }),
   stream_time: z.tuple([zDayjs(), zDayjs()], {
     errorMap: (issue) =>

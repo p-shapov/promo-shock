@@ -139,8 +139,10 @@ const NewPromo: FC = () => {
       });
       const args = [
         {
-          startTime: BigInt(data.promo_sale_time[0].unix()),
-          endTime: BigInt(data.promo_sale_time[1].unix()),
+          startTime: BigInt(
+            data.promo_sale_time[0].utc().add(5, "minute").unix(),
+          ),
+          endTime: BigInt(data.promo_sale_time[1].utc().unix()),
           promoAddr: process.env.NEXT_PUBLIC_BSC_PROMO_TOKEN_ADDRESS,
           streams: data.promo_stream_addresses.map((address) => address.value),
           description: data.promo_description,

@@ -39,12 +39,19 @@ const formSchema = z.object({
         ? { message: "Description is required" }
         : { message: issue.message || "Invalid value" },
   }),
-  promo_sale_time: z.tuple([zDayjs(), zDayjs()], {
-    errorMap: (issue) =>
-      issue.code === z.ZodIssueCode.invalid_type
-        ? { message: "Sale time is required" }
-        : { message: issue.message || "Invalid value" },
-  }),
+  promo_sale_time: z
+    .tuple([zDayjs(), zDayjs()], {
+      errorMap: (issue) =>
+        issue.code === z.ZodIssueCode.invalid_type
+          ? { message: "Sale time is required" }
+          : { message: issue.message || "Invalid value" },
+    })
+    .refine(([start, end]) => end.diff(start, "day") !== 0, {
+      message: "Sale time must be at least 1 day",
+    })
+    .refine(([start, end]) => end.diff(start, "day") <= 30, {
+      message: "Sale time must be at most 30 days",
+    }),
   promo_shopping_link: z.string({
     errorMap: (issue) =>
       issue.code === z.ZodIssueCode.invalid_type

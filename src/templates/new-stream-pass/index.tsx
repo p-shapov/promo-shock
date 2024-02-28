@@ -105,11 +105,13 @@ const NewStreamPass: FC = () => {
           .set("hour", data.stream_time[0].hour())
           .set("minute", data.stream_time[0].minute())
           .set("second", data.stream_time[0].second())
+          .utc()
           .unix(),
         end_time: data.stream_date
           .set("hour", data.stream_time[1].hour())
           .set("minute", data.stream_time[1].minute())
           .set("second", data.stream_time[1].second())
+          .utc()
           .unix(),
         stream_link: data.stream_link,
         streamer_link: data.streamer_link,
@@ -118,8 +120,10 @@ const NewStreamPass: FC = () => {
       });
       const args = [
         {
-          startTime: BigInt(data.stream_sale_time[0].unix()),
-          endTime: BigInt(data.stream_sale_time[1].unix()),
+          startTime: BigInt(
+            data.stream_sale_time[0].utc().add(5, "minute").unix(),
+          ),
+          endTime: BigInt(data.stream_sale_time[1].utc().unix()),
           price: BigInt(data.stream_price),
           paymentToken: process.env.NEXT_PUBLIC_BSC_PAYMENT_TOKEN_ADDRESS,
         },

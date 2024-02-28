@@ -1,11 +1,11 @@
+import type { Dayjs } from "dayjs";
 import dayjs from "dayjs";
 import { isAddress } from "viem";
-import type { RawCreateParams } from "zod";
+import type { RawCreateParams, CustomErrorParams } from "zod";
 import { z } from "zod";
 
-const zDayjs = (params?: RawCreateParams) =>
-  // @ts-expect-error Parameter 'dayjs' is constructor function.
-  z.instanceof(dayjs, params);
+const zDayjs = (params?: CustomErrorParams) =>
+  z.instanceof(dayjs as unknown as typeof Dayjs, params);
 const zUploadFile = (params?: RawCreateParams) =>
   z.object(
     {

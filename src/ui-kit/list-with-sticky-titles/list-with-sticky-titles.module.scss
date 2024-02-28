@@ -1,0 +1,19 @@
+.root {
+  position: relative;
+  display: grid;
+  grid-template-columns: 360px 1fr;
+  grid-template-rows: max-content;
+}
+
+.sticky {
+  position: sticky;
+  display: grid;
+  top: 0;
+  grid-column: 1;
+  grid-row: 1;
+  height: max-content;
+}
+
+.list {
+  height: max-content;
+}

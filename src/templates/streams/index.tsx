@@ -46,8 +46,8 @@ export const Streams: FC<Props> = ({ queryKey }) => {
         filterOptions={
           [
             { label: "All", value: "all" },
-            { label: "I created", value: "owner" },
             { label: "I bought", value: "buyer" },
+            { label: "I created", value: "owner" },
           ] as const
         }
         mapKeysToFilter={(filterKeys) => ({

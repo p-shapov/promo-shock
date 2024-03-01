@@ -46,8 +46,8 @@ const Promos: FC<Props> = ({ queryKey }) => {
         filterOptions={
           [
             { label: "All", value: "all" },
+            { label: "I received", value: "buyer" },
             { label: "I created", value: "owner" },
-            { label: "I bought", value: "buyer" },
           ] as const
         }
         mapKeysToFilter={(filterKeys) => ({

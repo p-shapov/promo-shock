@@ -5,11 +5,11 @@ import { useAccount } from "wagmi";
 
 import { CardList } from "@promo-shock/components";
 import type { Stream } from "@promo-shock/shared/entities";
+import { fetchInfiniteStreamCards } from "@promo-shock/shared/queries";
 import type { InferQueryKey } from "@promo-shock/shared/types";
 import { Button, StreamCard } from "@promo-shock/ui-kit";
 
 import styles from "./streams.module.scss";
-import { fetchInfiniteStreamCards } from "../queries";
 
 type Props = {
   queryKey: InferQueryKey<typeof fetchInfiniteStreamCards>;

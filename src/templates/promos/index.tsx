@@ -5,11 +5,11 @@ import { useAccount } from "wagmi";
 
 import { CardList } from "@promo-shock/components";
 import type { Promo } from "@promo-shock/shared/entities";
+import { fetchInfinitePromoCards } from "@promo-shock/shared/queries";
 import type { InferQueryKey } from "@promo-shock/shared/types";
 import { Button, PromoCard } from "@promo-shock/ui-kit";
 
 import styles from "./promos.module.scss";
-import { fetchInfinitePromoCards } from "../queries";
 
 type Props = {
   queryKey: InferQueryKey<typeof fetchInfinitePromoCards>;

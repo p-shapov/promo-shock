@@ -44,6 +44,7 @@ const DateField: FC<PropsWithClassName<Props>> = forwardRef(
             className={classes.input}
             suffixIcon={false}
             minDate={min}
+            format="dd.mm.yyyy"
             {...rest}
           />
         </ErrorWrapper>
